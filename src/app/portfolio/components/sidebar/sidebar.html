@@ -1,0 +1,97 @@
+<aside
+  id="sidebar"
+  [ngClass]="[ isSidebarOpen ? 'w-[30%] sm:w-[280px] px-7' : 'w-0 px-0 overflow-hidden']"
+  class="fixed left-0 top-0 h-screen z-50 py-8 flex flex-col transition-all duration-500
+         bg-[radial-gradient(circle_at_bottom_left,_rgba(220,38,38,0.25),_transparent_60%),linear-gradient(to_bottom,_#000,_#000)]
+         shadow-[0_0_40px_rgba(220,38,38,0.15)]">
+
+  <!-- TOGGLE BUTTON -->
+  <!-- TOGGLE BUTTON — nasa labas ng aside -->
+<button
+  (click)="toggleMenu()"
+  class="fixed top-6 left-6 w-10 h-10 rounded-full
+         bg-black/70 backdrop-blur flex items-center justify-center
+         text-white text-xl hover:bg-red-600 transition z-[999]">
+  <span *ngIf="isSidebarOpen">✖</span>
+  <span *ngIf="!isSidebarOpen">☰</span>
+</button>
+
+<aside
+  id="sidebar"
+  [ngClass]="[ isSidebarOpen ? 'w-[30%] sm:w-[280px] px-7' : 'w-0 px-0 overflow-hidden']"
+  class="fixed left-0 top-0 h-screen z-50 py-8 flex flex-col transition-all duration-500
+         bg-[radial-gradient(circle_at_bottom_left,_rgba(220,38,38,0.25),_transparent_60%),linear-gradient(to_bottom,_#000,_#000)]
+         shadow-[0_0_40px_rgba(220,38,38,0.15)]">
+
+  <div
+    class="flex flex-col h-full transition-opacity duration-300"
+    [ngClass]="{
+      'opacity-100 sidebar-animate': isSidebarOpen,
+      'opacity-0 pointer-events-none': !isSidebarOpen
+    }">
+
+    <!-- PROFILE -->
+    <div class="flex flex-col items-center mb-10 sidebar-item">
+      <img src="assets/PicAbout.png"
+        class="w-9 h-9 w-15 h-15 sm:w-20 sm:h-20 sm:w-25 sm:h-25 lg:w-30 lg:h-30 rounded-full border-2 sm:border-3 border-grey-900 object-cover"
+        alt="Profile" />
+    </div>
+
+    <nav class="flex flex-col items-center space-y-3 text-[clamp(0.75rem,1vw,0.95rem)]">
+      <a href="#home"
+        class="w-full text-center py-2 rounded-md transition-all duration-300 sidebar-item"
+        [ngClass]="activeSection === 'home' ? activeNav : inactiveNav">Home</a>
+
+      <a href="#about"
+        class="w-full text-center py-2 rounded-md transition-all duration-300 sidebar-item"
+        [ngClass]="activeSection === 'about' ? activeNav : inactiveNav">About</a>
+
+      <a href="#skills"
+        class="w-full text-center py-2 rounded-md transition-all duration-300 sidebar-item"
+        [ngClass]="activeSection === 'skills' ? activeNav : inactiveNav">Skills</a>
+
+      <a href="#education"
+        class="w-full text-center py-2 rounded-md transition-all duration-300 sidebar-item"
+        [ngClass]="activeSection === 'education' ? activeNav : inactiveNav">Education</a>
+
+      <a href="#projects"
+        class="w-full text-center py-2 rounded-md transition-all duration-300 sidebar-item"
+        [ngClass]="activeSection === 'projects' ? activeNav : inactiveNav">Projects</a>
+
+      <a href="#service"
+        class="w-full text-center py-2 rounded-md transition-all duration-300 sidebar-item"
+        [ngClass]="activeSection === 'service' ? activeNav : inactiveNav">Service</a>
+
+      <a href="#contact"
+        class="w-full text-center py-2 rounded-md transition-all duration-300 sidebar-item"
+        [ngClass]="activeSection === 'contact' ? activeNav : inactiveNav">Contact</a>
+    </nav>
+
+    <!-- SOCIAL -->
+    <div class="mt-auto pt-10 text-center sidebar-item">
+      <p class="text-xs text-gray-400 mb-3">Follow Me</p>
+      <div class="flex flex-wrap justify-center gap-3">
+        <a href="https://www.facebook.com/shirigami14?mibextid=wwXIfr"
+          class="w-8 h-8 rounded-full bg-[#1c1c1c] flex items-center justify-center
+                 text-gray-400 transition-all duration-300 hover:bg-red-600 hover:text-white wave-icon">
+          <i class="fa-brands fa-facebook-f text-sm"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/israelagapay-agapay-2141053a1/#"
+          class="w-8 h-8 rounded-full bg-[#1c1c1c] flex items-center justify-center
+                 text-gray-400 transition-all duration-300 hover:bg-red-600 hover:text-white wave-icon">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a href="https://github.com/Israel-Agapay#"
+          class="w-8 h-8 rounded-full bg-[#1c1c1c] flex items-center justify-center
+                 text-gray-400 transition-all duration-300 hover:bg-red-600 hover:text-white wave-icon">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://www.instagram.com/malysh2315/#"
+          class="w-8 h-8 rounded-full bg-[#1c1c1c] flex items-center justify-center
+                 text-gray-400 transition-all duration-300 hover:bg-red-600 hover:text-white wave-icon">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</aside>

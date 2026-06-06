@@ -1,0 +1,48 @@
+<section id="goal" class="relative isolate min-h-screen flex items-center justify-center
+    bg-black text-white overflow-hidden">
+
+  <div class="transition-all duration-500 z-0"
+      [ngClass]="{'xl:ml-[280px]': isSidebarOpen, 'ml-0': !isSidebarOpen}">
+
+    <img src="assets/bgtagline.png"
+        class="absolute inset-0 w-full h-full object-cover z-[-1] "
+        alt="Background"/>
+
+    <!-- DARK OVERLAY -->
+    <div class="absolute inset-0 bg-black/50 z-0"></div>
+
+    <!-- CONTENT -->
+    <div class="relative z-10 max-w-none px-6 text-center space-y-6">
+
+      <p class="text-xl tracking-[0.4em] text-gray-400 mb-6">
+        MY GOAL IS TO
+        <span class="bg-gradient-to-b from-[#ffd166] via-[#ffb703] to-[#9d0208]
+                    bg-clip-text text-transparent font-semibold">
+          BUILD IMPACTFUL
+        </span>
+        WEB SOLUTIONS
+      </p>
+
+      <div class="space-y-1">
+        <div class="uppercase font-extrabold text-[clamp(1.1rem,1.5vw,1.7rem)] text-transparent bg-clip-text
+                leading-relaxed max-w-[78ch] mx-auto">
+          <span class="goal-line" style="--delay:0.2">
+            I AM A PASSIONATE WEB DEVELOPER WITH A STRONG FOCUS ON CREATING CLEAN,
+          </span>
+          <span class="goal-line" style="--delay:0.3">
+            MODERN, AND USER-FRIENDLY WEBSITES. SKILLED IN FRONT-END UI DEVELOPMENT
+          </span>
+          <span class="goal-line" style="--delay:0.4">
+            TECHNOLOGIES, I LOVE TURNING IDEAS INTO FULLY FUNCTIONAL DIGITAL EXPERIENCES. I
+          </span>
+          <span class="goal-line" style="--delay:0.5">
+            ENJOY SOLVING PROBLEMS WITH CODE AND CONTINUOUSLY LEARNING NEW TOOLS TO
+          </span>
+          <span class="goal-line" style="--delay:0.6">
+            STAY UPDATED WITH INDUSTRY TRENDS.
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

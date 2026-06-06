@@ -1,0 +1,26 @@
+.social-icon {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.social-wave.show .social-icon {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.social-wave.show .social-icon:nth-child(1) { transition-delay: 0.38s; }
+.social-wave.show .social-icon:nth-child(2) { transition-delay: 0.46s; }
+.social-wave.show .social-icon:nth-child(3) { transition-delay: 0.54s; }
+.social-wave.show .social-icon:nth-child(4) { transition-delay: 0.62s; }
+
+.footer-reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: all 0.8s ease;
+}
+
+.footer-reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}

@@ -1,0 +1,140 @@
+<section id="contact"
+  class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-[#160707] to-[#220b0b]
+        text-white px-6 lg:px-10 py-24 pb-40">
+
+  <div class="transition-all duration-500 w-full"
+    [ngClass]="{'xl:pl-[280px]': isSidebarOpen, 'pl-0': !isSidebarOpen}">
+
+    <div class="relative group max-w-[1400px] mx-auto w-full"
+      (mousemove)="onGlowMove($event)"
+      (mouseleave)="onGlowLeave()"
+      [style.--x]="glowX"
+      [style.--y]="glowY">
+
+      <div class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        style="padding: 3px; background: radial-gradient(500px circle at var(--x) var(--y), rgba(255, 0, 0, 1),
+            rgba(255, 0, 0, 0.6) 25%, rgba(255, 0, 0, 0.2) 45%, transparent 60%);
+            -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            -webkit-mask-composite: xor; mask-composite: exclude;">
+      </div>
+
+      <div class="max-w-[1400px] mx-auto w-full rounded-3xl bg-[#0e0e0e]/80 border border-[#1f1f1f]
+            shadow-[0_0_60px_rgba(0,0,0,0.6)] px-8 sm:px-12 lg:px-16 py-16">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+
+          <!-- LEFT -->
+          <div class="flex flex-col items-center lg:items-start text-center lg:text-left w-full">
+            <h2 class="font-bold mb-8 bg-gradient-to-b from-[#f2f2f2] via-[#cfcfcf] to-[#9e9e9e] bg-clip-text text-transparent
+                    text-[clamp(2rem,4.5vw,3rem)] reveal-up">
+              Contact Information
+            </h2>
+
+            <p class="text-lg text-gray-400 max-w-lg mb-14 leading-relaxed mx-auto lg:mx-0 reveal-up">
+              Feel free to reach out for questions or opportunities.
+              I'm always open to learning, collaborating, and creating amazing projects!
+            </p>
+
+            <div class="mb-8 w-full flex flex-col items-center lg:items-start">
+              <div class="flex items-center gap-3 justify-center lg:justify-start">
+                <i class="fa-solid fa-location-dot text-red-500 text-3xl shrink-0 reveal-up"></i>
+                <h4 class="text-lg font-semibold reveal-up">Location</h4>
+              </div>
+              <p class="text-gray-400 mt-1 text-center lg:text-left lg:ml-[35px] reveal-up">
+                Hagonoy, Bulacan, Philippines
+              </p>
+            </div>
+
+            <div class="mb-8 w-full flex flex-col items-center lg:items-start">
+              <div class="flex items-center gap-3 justify-center lg:justify-start">
+                <i class="fa-solid fa-envelope text-red-500 text-2xl shrink-0 reveal-up"></i>
+                <h4 class="text-lg font-semibold reveal-up">Email</h4>
+              </div>
+              <p class="text-gray-400 mt-1 text-center lg:text-left lg:ml-[35px] reveal-up">
+                israelgapay@gmail.com
+              </p>
+            </div>
+
+            <div class="mb-14 w-full flex flex-col items-center lg:items-start">
+              <div class="flex items-center gap-3 justify-center lg:justify-start">
+                <i class="fa-solid fa-phone text-red-500 text-2xl shrink-0 reveal-up"></i>
+                <h4 class="text-lg font-semibold reveal-up">Phone</h4>
+              </div>
+              <p class="text-gray-400 mt-1 text-center lg:text-left lg:ml-[35px] reveal-up">
+                09207615416
+              </p>
+            </div>
+
+            <h4 class="text-lg font-semibold mb-5 reveal-up">Follow Me</h4>
+            <div class="flex gap-4 text-2xl text-gray-400 justify-center lg:justify-start social-wave">
+              <a href="https://www.linkedin.com/in/israelagapay-agapay-2141053a1/#"
+                class="social-icon hover:text-red-400 transition">
+                <i class="fa-brands fa-linkedin"></i>
+              </a>
+              <a href="https://github.com/Israel-Agapay#"
+                class="social-icon hover:text-red-400 transition">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a href="https://www.facebook.com/shirigami14?mibextid=wwXIfr&rdid=kjK41rZp3in5P1Ds&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F17RyF6h6zd%2F#"
+                class="social-icon hover:text-red-400 transition">
+                <i class="fa-brands fa-facebook"></i>
+              </a>
+              <a href="https://www.instagram.com/malysh2315/#"
+                class="social-icon hover:text-red-400 transition">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- RIGHT -->
+          <div class="text-center lg:text-left">
+            <h2 class="font-bold mb-10 bg-gradient-to-b from-[#f2f2f2] via-[#cfcfcf] to-[#9e9e9e] bg-clip-text text-transparent reveal-up"
+              style="font-size: clamp(2rem, 5vw, 3rem);">
+              Send Me a Message
+            </h2>
+
+            <div *ngIf="isLoading"
+              class="mb-10 p-6 rounded-2xl bg-white/5 border border-white/10
+                    text-white text-lg flex items-center gap-4 animate-pulse">
+              <span class="w-6 h-6 border-2 border-white/40 border-t-white rounded-full animate-spin"></span>
+              Sending your message...
+            </div>
+
+            <div *ngIf="submitted"
+              class="mb-10 p-6 rounded-2xl bg-green-500/10 border border-green-500/30 text-green-400 text-lg animate-success">
+              ✅ Thank you! Your message has been sent successfully.
+            </div>
+
+            <form #contactForm="ngForm" (ngSubmit)="sendEmail(contactForm)"
+              class="space-y-8 mx-auto lg:mx-0 max-w-xl lg:max-w-none">
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal-up">
+                <input type="text" name="name" ngModel placeholder="Your Name" required
+                  class="w-full bg-transparent border border-[#2a2a2a] rounded-xl px-5 py-4 text-lg text-white placeholder-gray-500
+                        focus:outline-none focus:border-[#444] focus:ring-1 focus:ring-[#333] transition hover:border-red-600"/>
+                <input type="email" name="email" ngModel placeholder="Your Email" required
+                  class="w-full bg-transparent border border-[#2a2a2a] rounded-xl px-5 py-4 text-lg text-white placeholder-gray-500
+                        focus:outline-none focus:border-[#444] focus:ring-1 focus:ring-[#333] transition hover:border-red-600"/>
+              </div>
+
+              <input type="text" name="subject" ngModel placeholder="Subject" required
+                class="w-full bg-transparent border border-[#2a2a2a] rounded-xl px-5 py-4 text-lg text-white placeholder-gray-500
+                      focus:outline-none focus:border-[#444] focus:ring-1 focus:ring-[#333] transition hover:border-red-600 reveal-up"/>
+
+              <textarea rows="7" name="message" ngModel placeholder="Message" required
+                class="w-full bg-transparent border border-[#2a2a2a] rounded-xl px-5 py-4 text-lg text-white placeholder-gray-500
+                      focus:outline-none focus:border-[#444] focus:ring-1 focus:ring-[#333] resize-none transition hover:border-red-600 reveal-up">
+              </textarea>
+
+              <button type="submit" [disabled]="isLoading"
+                class="w-full rounded-full font-semibold bg-gradient-to-r from-[#d62828] to-[#6a040f]
+                      hover:brightness-125 transition text-white disabled:opacity-50 disabled:cursor-not-allowed
+                      py-[clamp(0.9rem,2.5vw,1.25rem)] text-[clamp(1rem,2.5vw,1.125rem)] reveal-up">
+                Appointment Now <i class="fa-regular fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

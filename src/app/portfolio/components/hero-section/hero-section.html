@@ -1,0 +1,85 @@
+<section id="home" class="relative z-10 h-screen overflow-hidden">
+  <div class="relative w-full h-full overflow-hidden">
+    <img src="assets/bgpic3.png"
+      class="absolute inset-0 w-full h-full object-cover z-0"
+      alt="Background"/>
+
+    <div class="relative z-10 flex h-full text-white">
+      <main
+        class="flex-1 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-[2.1fr_2.9fr] lg:gap-x-30 transition-all duration-500"
+        [ngClass]="{'xl:ml-[250px]': isSidebarOpen, 'ml-0': !isSidebarOpen}">
+
+        <!-- LEFT TEXT -->
+        <div
+            class="flex flex-col justify-center text-center items-center md:items-center lg:items-start lg:text-left lg:-translate-y-3 "
+            style="padding-left: clamp(3.5rem, 4vw, 5rem); padding-right: clamp(3rem, 4vw, 2rem);">
+          
+          <p class="reveal delay-200 text-lg sm:text-2xl font-semibold tracking-widest text-gray-300 mb-1">
+            HELLO
+          </p>
+
+          <h1 class="reveal delay-400 text-[1.6rem] sm:text-[2.4rem] md:text-[2.8rem] lg:text-[3rem]
+                  font-extrabold leading-tight mb-2 bg-gradient-to-b from-[#f2f2f2] via-[#cfcfcf] to-[#9e9e9e]
+                  bg-clip-text text-transparent">
+            I'm Israel James a
+          </h1>
+
+          <h1 #titleText
+            class="reveal delay-600 text-[1.8rem] sm:text-[2.2rem] md:text-[2.6rem] lg:text-[3.2rem] font-extrabold
+                  leading-tight mb-2 transition-all duration-700 bg-gradient-to-b from-[#f2f2f2] via-[#cfcfcf] to-[#9e9e9e]
+                  bg-clip-text text-transparent">
+            {{ currentTitle }}
+          </h1>
+
+          <p class="reveal delay-600 text-gray-300 mx-auto lg:mx-0 leading-relaxed
+                  bg-gradient-to-b from-[#f2f2f2] via-[#cfcfcf] to-[#9e9e9e]
+                  bg-clip-text text-transparent"
+            style="font-size: clamp(1rem, 2.60vw, 1.15rem);">
+            I Discover web experiences designed to inspire creativity and spark new ideas.
+            See how simple design and clear interaction can make anything feel possible.
+          </p>
+
+          <button
+            class="reveal delay-600 mt-8 lg:mt-10 mx-auto lg:mx-0 w-fit px-6 sm:px-8 py-3 sm:py-4
+                  rounded-full bg-gradient-to-r from-[#d62828] to-[#6a040f]
+                  hover:brightness-125 transition font-semibold text-white">
+            View Portfolio →
+          </button>
+        </div>
+
+        <!-- RIGHT IMAGE -->
+        <div
+          class="relative flex justify-center items-end mt-10 md:justify-center"
+          style="padding-right: clamp(1px, 1vw, 8rem);">
+          <div class="relative isolate translate-x-0"
+               style="transform: translateX(clamp(0rem, 0vw, 0rem));">
+            <div class="hidden lg:block absolute inset-0 pointer-events-none"
+                 style="transform: translateX(clamp(0rem, -7vw, -40rem));"></div>
+
+            <!-- BACK TEXT -->
+            <div #backText
+              class="absolute z-0 font-semibold tracking-widest text-[clamp(26px,5vw,64px)]
+                    top-16 sm:top-24 lg:top-1/6 left-1/2 -translate-x-1/2
+                    opacity-20 whitespace-nowrap bg-gradient-to-b from-[#f2f2f2] via-[#cfcfcf] to-[#9e9e9e]
+                    bg-clip-text text-transparent">
+              WEB DESIGNER
+            </div>
+
+            <!-- IMAGE -->
+              <img src="assets/selfmodel.png"
+                  class=" relative z-[10] h-[57vh] sm:h-[70vh] lg:h-[90%] max-h-[35rem] sm:max-h-[52rem] lg:max-h-[47rem] object-contain reveal-image "
+                  alt="Designer"/>
+
+            <!-- FRONT TEXT -->
+              <div #frontText
+                class=" absolute z-[20] font-extrabold tracking-widest text-[clamp(26px,5vw,64px)] bottom-16 sm:bottom-24 lg:bottom-20
+                  left-1/2 -translate-x-1/2 text-transparent whitespace-nowrap "
+                style="-webkit-text-stroke: 2px rgba(255,255,255,0.6);">
+                WEB DEVELOPER
+              </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</section>

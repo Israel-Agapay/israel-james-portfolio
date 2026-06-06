@@ -1,0 +1,25 @@
+.about-item {
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.about-image {
+  transform: translateY(60px) scale(0.95);
+}
+
+.about-text {
+  transform: translateY(60px);
+}
+
+.about-title {
+  transform: translateY(30px);
+}
+
+.about-item.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.about-image.show { transition-delay: 0.2s; }
+.about-title.show { transition-delay: 0.35s; }
+.about-text.show  { transition-delay: 0.45s; }
