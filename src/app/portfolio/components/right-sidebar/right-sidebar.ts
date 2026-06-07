@@ -16,4 +16,11 @@ export class RightSidebarComponent {
   hideSidebar() {
     this.hide.emit();
   }
+  scrollTo(sectionId: string) {
+  const el = document.getElementById(sectionId);
+  if (!el) return;
+  const offset = -75; 
+  const top = el.getBoundingClientRect().top + window.scrollY - offset;
+  window.scrollTo({ top, behavior: 'instant' });
+}
 }

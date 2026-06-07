@@ -20,4 +20,11 @@ export class SidebarComponent {
   toggleMenu() {
     this.toggle.emit();
   }
+scrollTo(sectionId: string) {
+  const el = document.getElementById(sectionId);
+  if (!el) return;
+  const offset = -70; 
+  const top = el.getBoundingClientRect().top + window.scrollY - offset;
+  window.scrollTo({ top, behavior: 'instant' });
+}
 }

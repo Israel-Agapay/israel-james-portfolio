@@ -1,5 +1,18 @@
-<section id="projects" class="relative min-h-screen bg-[#080810] text-white py-24">
-  <div class="transition-all duration-500"
+
+<section id="projects" class="relative min-h-screen bg-[#080810] text-white py-20">
+  
+  <!-- BG DESIGN -->
+<div class="absolute inset-0" style="background:#080810;"></div>
+<div class="absolute inset-0 opacity-[0.04] pointer-events-none"
+  style="background-image:linear-gradient(rgba(255,255,255,1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,1) 1px,transparent 1px);background-size:60px 60px;"></div>
+<div class="absolute inset-0 pointer-events-none"
+  style="background:radial-gradient(ellipse at center,transparent 80%,#080810 80%);"></div>
+<div class="absolute -bottom-[40px] -right-[40px] w-[350px] h-[350px] rounded-full pointer-events-none"
+  style="background:radial-gradient(circle,rgba(220,38,38,0.08),transparent 95%);"></div>
+<div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/8 to-transparent"></div>
+<div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/8 to-transparent"></div>
+
+  <div class="relative z-10 transition-all duration-500"
     [ngClass]="{'xl:ml-[280px]': isSidebarOpen, 'ml-0': !isSidebarOpen}">
     <div class="max-w-6xl mx-auto px-6">
 
@@ -10,7 +23,7 @@
           Projects
         </span>
 
-        <h2 class="text-4xl sm:text-5xl font-light mb-20">
+        <h2 class="text-4xl sm:text-5xl font-light mb-12">
           Projects Where Creativity <br> <span class="font-medium bg-gradient-to-b from-[#ffd166] via-[#ffb703] to-[#9d0208] bg-clip-text text-transparent">
             Meets Strategy</span>
         </h2>
@@ -203,4 +216,5 @@
       </div>
     </div>
   </div>
+  
 </section>

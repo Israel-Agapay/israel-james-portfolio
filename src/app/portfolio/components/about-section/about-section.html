@@ -1,15 +1,24 @@
-<section id="about" class="relative min-h-screen flex items-center justify-center bg-black text-white py-20 overflow-hidden">
+<section id="about" class="relative bg-black text-white py-24 overflow-hidden">
 
   <!-- BG BLOBS -->
-  <div class="absolute -left-40 top-20 w-[500px] h-[500px] bg-white/5 rounded-full blur-3xl"></div>
-  <div class="absolute right-0 bottom-0 w-[400px] h-[300px] bg-white/5 rounded-full blur-3xl"></div>
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-red-900/5 rounded-full blur-3xl"></div>
+<!-- BG DESIGN -->
+<div class="absolute inset-0" style="background:#080808;"></div>
+<div class="absolute -top-[60px] -left-[80px] w-[600px] h-[260px] rounded-full pointer-events-none"
+  style="background:linear-gradient(90deg,rgba(253, 253, 253, 0.18),rgba(255, 255, 255, 0.08),transparent);filter:blur(50px);transform:rotate(-15deg);"></div>
+<div class="absolute -bottom-[40px] -right-[60px] w-[500px] h-[200px] rounded-full pointer-events-none"
+  style="background:linear-gradient(90deg,transparent,rgba(247, 247, 247, 0.1),rgba(100,0,0,0.15));filter:blur(45px);transform:rotate(-10deg);"></div>
+<div class="absolute inset-0 pointer-events-none"
+  style="background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,0.5));"></div>
+<div class="absolute top-0 left-0 right-0 h-px"
+  style="background:linear-gradient(90deg,transparent,rgba(39, 38, 38, 0.4),transparent);"></div>
+<div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
 
-  <div class="relative z-10 w-full transition-all duration-500 px-6 sm:px-12 lg:px-20"
-    [ngClass]="{'xl:ml-[280px]': isSidebarOpen, 'ml-0': !isSidebarOpen}">
+  <div class="relative z-10 w-full transition-all duration-500"
+      [ngClass]="{'xl:pl-[280px]': isSidebarOpen, 'pl-0': !isSidebarOpen}">
+  <div class="max-w-6xl mx-auto px-6">
 
     <!-- TOP — PHOTO + INFO -->
-    <div class="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-16 mb-16 items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-16 mb-11 items-center">
 
       <!-- PHOTO -->
       <div class="flex flex-col items-center lg:items-start about-item about-image">
@@ -36,14 +45,17 @@
 
         <!-- EYEBROW + NAME -->
         <div class="about-item about-title">
-          <div class="text-[9px] tracking-[0.3em] text-[#dc2626] uppercase mb-3">
-            About Me
-          </div>
+          <div class="mt-4 text-center lg:text-left">
+          <span class="inline-block mb-6 px-4 py-1 rounded-full bg-white/10 text-sm tracking-widest uppercase">
+            ABOUT ME
+          </span>
+        </div>
           <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4">
-            Israel James
-            <span class="text-[#dc2626]"> Agapay</span>
+            <span class="bg-gradient-to-b from-[#f2f2f2] via-[#cfcfcf] to-[#9e9e9e] bg-clip-text text-transparent">
+              Israel James Agapay
+            </span>
           </h2>
-          <p class="text-sm text-white/40 leading-relaxed max-w-2xl">
+          <p class="text-base sm:text-lg text-white/70 leading-relaxed">
             A passionate BSIT student focused on creating clean, modern websites
             and immersive game experiences. I combine creativity and technical
             skill to build digital solutions that make a real impact.
@@ -58,9 +70,11 @@
                       transition-all duration-300 cursor-default">
             <div class="flex items-center gap-1.5 mb-2">
               <span class="text-base">🎓</span>
-              <span class="text-[8px] tracking-[0.15em] text-white/25 uppercase">Education</span>
+              <span class="text-[11px] tracking-[0.15em] text-white/35 uppercase">
+                Education
+              </span>
             </div>
-            <div class="text-xs font-semibold text-white/80 leading-snug">
+            <div class="text-sm font-semibold text-white/75 leading-snug">
               BS Information Technology
             </div>
           </div>
@@ -70,10 +84,10 @@
                       transition-all duration-300 cursor-default">
             <div class="flex items-center gap-1.5 mb-2">
               <span class="text-base">📍</span>
-              <span class="text-[8px] tracking-[0.15em] text-white/25 uppercase">Location</span>
+              <span class="text-[11px] tracking-[0.15em] text-white/35 uppercase">Location</span>
             </div>
-            <div class="text-xs font-semibold text-white/80 leading-snug">
-              Philippines
+            <div class="text-xs font-semibold text-white/75 leading-snug">
+              Philippines Hagonoy, Bulacan
             </div>
           </div>
 
@@ -82,9 +96,9 @@
                       transition-all duration-300 cursor-default">
             <div class="flex items-center gap-1.5 mb-2">
               <span class="text-base">💼</span>
-              <span class="text-[8px] tracking-[0.15em] text-white/25 uppercase">Experience</span>
+              <span class="text-[11px] tracking-[0.15em] text-white/35 uppercase">Experience</span>
             </div>
-            <div class="text-xs font-semibold text-white/80 leading-snug">
+            <div class="text-xs font-semibold text-white/75 leading-snug">
               Internship + Project Based
             </div>
           </div>
@@ -94,9 +108,9 @@
                       transition-all duration-300 cursor-default">
             <div class="flex items-center gap-1.5 mb-2">
               <span class="text-base">⚡</span>
-              <span class="text-[8px] tracking-[0.15em] text-white/25 uppercase">Focus</span>
+              <span class="text-[11px] tracking-[0.15em] text-white/35 uppercase">Focus</span>
             </div>
-            <div class="text-xs font-semibold text-white/80 leading-snug">
+            <div class="text-xs font-semibold text-white/75 leading-snug">
               Front-End Development
             </div>
           </div>
@@ -106,15 +120,15 @@
         <!-- BUTTONS -->
         <div class="flex flex-wrap gap-3 about-item about-text">
           <a href="assets/Agapay, Israel James - Resume.pdf" download
-            class="px-7 py-3 rounded-xl bg-[#dc2626] hover:bg-[#b91c1c]
-                   text-white text-sm font-semibold transition-colors duration-200
-                   shadow-[0_0_20px_rgba(220,38,38,0.3)]">
+            class="px-8 py-4 rounded-xl bg-gradient-to-r from-[#d62828] to-[#6a040f]
+                  hover:brightness-125 text-white text-base font-semibold transition duration-200
+                  shadow-[0_0_20px_rgba(220,38,38,0.3)]">
             Download CV
           </a>
           <a href="#contact"
-            class="px-7 py-3 rounded-xl border border-white/15
+            class="px-8 py-4 rounded-xl border border-white/15
                    text-white/60 hover:text-white hover:border-white/35
-                   text-sm font-semibold transition-all duration-200">
+                   text-base font-semibold transition-all duration-200">
             Contact Me
           </a>
         </div>
@@ -123,8 +137,8 @@
     </div>
 
     <!-- DIVIDER -->
-    <div class="flex items-center gap-4 mb-12 about-item about-text">
-      <div class="h-px flex-1 bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+    <div class="flex items-center gap-4 mb-8 about-item about-text">
+      <div class="h-px flex-1 bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
     </div>
 
     <!-- BOTTOM — JOURNEY & VISION -->
@@ -133,9 +147,9 @@
       <!-- MY JOURNEY -->
       <div class="about-item about-text">
         <div class="flex items-center gap-3 mb-8">
-          <div class="w-6 h-0.5 bg-[#dc2626]"></div>
-          <h3 class="text-xl font-semibold">
-            My <span class="text-[#dc2626]">Journey</span>
+          <div class="w-6 h-0.5 bg-[#ffffff]"></div>
+          <h3 class="text-4xl font-semibold">
+            My <span class="font-medium bg-gradient-to-b from-[#ffd166] via-[#ffb703] to-[#9d0208] bg-clip-text text-transparent">Journey</span>
           </h3>
         </div>
 
@@ -143,26 +157,26 @@
         <div class="relative pl-6">
           <div class="absolute left-0 top-2 bottom-2 w-px bg-gradient-to-b from-[#dc2626] via-[#dc2626]/40 to-transparent"></div>
 
-          <div class="relative mb-8">
+          <div class="relative mb-5">
             <div class="absolute -left-6 top-2 w-2.5 h-2.5 rounded-full bg-[#dc2626] shadow-[0_0_8px_rgba(220,38,38,0.6)]"></div>
-            <div class="text-[9px] tracking-[0.2em] text-[#dc2626] uppercase font-medium mb-2">Started</div>
-            <div class="text-sm text-white/40 leading-relaxed">
+            <div class="text-[11px] tracking-[0.2em] text-[#ffffff] uppercase font-medium mb-2">Started</div>
+            <div class="text-base text-white/70 leading-relaxed">
               Started with curiosity and a passion for creating things people can interact with.
             </div>
           </div>
 
-          <div class="relative mb-8">
+          <div class="relative mb-5">
             <div class="absolute -left-6 top-2 w-2.5 h-2.5 rounded-full bg-[#dc2626] shadow-[0_0_8px_rgba(220,38,38,0.6)]"></div>
-            <div class="text-[9px] tracking-[0.2em] text-[#dc2626] uppercase font-medium mb-2">Explored</div>
-            <div class="text-sm text-white/40 leading-relaxed">
-              Explored web development, UI design, and game development — learning how creativity and logic work together.
+            <div class="text-[11px] tracking-[0.2em] text-[#ffffff] uppercase font-medium mb-2">Explored</div>
+            <div class="text-base text-white/70 leading-relaxed">
+              Explored web development, UI design, and game development learning how creativity and logic work together.
             </div>
           </div>
 
           <div class="relative">
             <div class="absolute -left-6 top-2 w-2.5 h-2.5 rounded-full bg-[#dc2626] shadow-[0_0_8px_rgba(220,38,38,0.6)]"></div>
-            <div class="text-[9px] tracking-[0.2em] text-[#dc2626] uppercase font-medium mb-2">Now</div>
-            <div class="text-sm text-white/40 leading-relaxed">
+            <div class="text-[11px] tracking-[0.2em] text-[#ffffff] uppercase font-medium mb-2">Now</div>
+            <div class="text-base text-white/70 leading-relaxed">
               Building real projects that combine modern design with functional code.
             </div>
           </div>
@@ -172,33 +186,33 @@
       <!-- MY VISION -->
       <div class="about-item about-text">
         <div class="flex items-center gap-3 mb-8">
-          <div class="w-6 h-0.5 bg-[#dc2626]"></div>
-          <h3 class="text-xl font-semibold">
-            My <span class="text-[#dc2626]">Vision</span>
+          <div class="w-6 h-0.5 bg-[#fcfcfc]"></div>
+          <h3 class="text-4xl font-semibold">
+            My <span class="font-medium bg-gradient-to-b from-[#ffd166] via-[#ffb703] to-[#9d0208] bg-clip-text text-transparent">Vision</span>
           </h3>
         </div>
 
-        <p class="text-sm text-white/40 leading-relaxed mb-6">
-          To continuously grow as a developer and designer — building
+        <p class="text-base text-white/70 leading-relaxed mb-6">
+          To continuously grow as a developer and designer building
           meaningful digital experiences that combine functionality,
           aesthetics, and innovation.
         </p>
-        <p class="text-sm text-white/40 leading-relaxed mb-8">
+        <p class="text-base text-white/70 leading-relaxed mb-8">
           I aim to push my skills further and contribute to projects
           that make a real impact in people's lives.
         </p>
 
         <!-- VISION HIGHLIGHTS -->
-        <div class="flex flex-col gap-3">
-          <div class="flex items-center gap-3 text-sm text-white/50">
+        <div class="flex flex-col gap-1">
+          <div class="flex items-center gap-3 text-base text-white/70">
             <div class="w-1 h-1 rounded-full bg-[#dc2626] flex-shrink-0"></div>
             Build impactful web solutions
           </div>
-          <div class="flex items-center gap-3 text-sm text-white/50">
+          <div class="flex items-center gap-3 text-base text-white/70">
             <div class="w-1 h-1 rounded-full bg-[#dc2626] flex-shrink-0"></div>
             Create immersive game experiences
           </div>
-          <div class="flex items-center gap-3 text-sm text-white/50">
+         <div class="flex items-center gap-3 text-base text-white/70">
             <div class="w-1 h-1 rounded-full bg-[#dc2626] flex-shrink-0"></div>
             Continuously learn and grow as a developer
           </div>
@@ -206,5 +220,6 @@
       </div>
 
     </div>
+   </div>
   </div>
 </section>
