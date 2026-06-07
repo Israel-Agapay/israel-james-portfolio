@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,79 +8,91 @@ import { CommonModule } from '@angular/common';
   templateUrl: './projects-section.html',
   styleUrl: './projects-section.css'
 })
-export class ProjectsSectionComponent {
+export class ProjectsSectionComponent implements AfterViewInit {
   @Input() isSidebarOpen: boolean = true;
 
-  // LIGHTBOX
-  isLightboxOpen = false;
-  isAnimating = false;
-  currentImageIndex = 0;
+  modalOpen = false;
+  currentProject = 0;
+  currentModalSlide = 0;
 
-  lightboxImages = [
-    'assets/Game1.png',
-    'assets/Game2.png',
-    'assets/Game3.png'
+  projects = [
+    {
+      title: 'The Lost Horizons: The Treasure Awaits',
+      shortTitle: 'The Lost Horizons',
+      desc: 'An immersive 3D adventure game with rich storytelling and treasure hunting mechanics. Features smooth gameplay, creative world-building, and engaging puzzle elements built in Unity.',
+      role: 'Fullstack Developer',
+      year: '2025',
+      type: 'Game Dev',
+      tags: ['Unity', 'C#', '2D', 'Adventure'],
+      slides: ['assets/Game1.png', 'assets/Game2.png', 'assets/Game3.png'],
+      accentColor: 'red',
+      reverse: false
+    },
+    {
+      title: "Apex Auto's – Car Selling Website",
+      shortTitle: "Apex Auto's",
+      desc: "Modern car selling platform with smooth browsing experience, interactive animations, and clean layouts. Designed the full UI/UX and implemented all frontend functionality using Angular.",
+      role: 'Frontend Developer',
+      year: '2023',
+      type: 'Web Dev',
+      tags: ['Angular', 'Tailwind CSS', 'TypeScript', 'UI/UX'],
+      slides: ['assets/ApexP1.png', 'assets/ApexP2.png', 'assets/ApexP3.png', 'assets/ApexP4.png', 'assets/ApexP5.png'],
+      accentColor: 'red',
+      reverse: true
+    }
   ];
 
-  openLightbox(index: number) {
-    this.currentImageIndex = index;
-    this.isLightboxOpen = true;
-    requestAnimationFrame(() => {
-      this.isAnimating = true;
+  slideshowIndexes: number[] = [0, 0];
+  private intervals: any[] = [];
+
+  ngAfterViewInit(): void {
+    this.initSlideshows();
+
+    const projectItems = document.querySelectorAll('.project-card-item');
+    if (projectItems.length) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+          } else {
+            entry.target.classList.remove('show');
+          }
+        });
+      }, { threshold: 0.2 });
+      projectItems.forEach(item => observer.observe(item));
+    }
+  }
+
+  initSlideshows() {
+    this.projects.forEach((proj, pi) => {
+      if (proj.slides.length <= 1) return;
+      this.intervals[pi] = setInterval(() => {
+        this.slideshowIndexes[pi] = (this.slideshowIndexes[pi] + 1) % proj.slides.length;
+      }, 2500);
     });
   }
 
-  closeLightbox() {
-    this.isAnimating = false;
-    setTimeout(() => {
-      this.isLightboxOpen = false;
-    }, 100);
+  openModal(index: number) {
+    this.currentProject = index;
+    this.currentModalSlide = 0;
+    this.modalOpen = true;
   }
 
-  nextImage() {
-    this.currentImageIndex =
-      (this.currentImageIndex + 1) % this.lightboxImages.length;
+  prevSlide() {
+    const total = this.projects[this.currentProject].slides.length;
+    this.currentModalSlide = (this.currentModalSlide - 1 + total) % total;
   }
 
-  prevImage() {
-    this.currentImageIndex =
-      (this.currentImageIndex - 1 + this.lightboxImages.length) %
-      this.lightboxImages.length;
+  nextSlide() {
+    const total = this.projects[this.currentProject].slides.length;
+    this.currentModalSlide = (this.currentModalSlide + 1) % total;
   }
 
-  // SLIDER
-  images = [
-    'assets/ApexP1.png',
-    'assets/ApexP2.png',
-    'assets/ApexP3.png',
-    'assets/ApexP4.png',
-    'assets/ApexP5.png',
-    'assets/ApexP6.png',
-    'assets/ApexP7.png',
-  ];
-
-  current = 0;
-
-  next() {
-    this.current = (this.current + 1) % this.images.length;
+  closeModal() {
+    this.modalOpen = false;
   }
 
-  prev() {
-    this.current = (this.current - 1 + this.images.length) % this.images.length;
-  }
-
-  getCardClass(index: number) {
-    const total = this.images.length;
-
-    if (index === this.current) {
-      return 'z-20 w-[1000px]';
-    }
-    if (index === (this.current - 1 + total) % total) {
-      return 'z-10 -translate-x-80 scale-90 opacity-50 w-[650px]';
-    }
-    if (index === (this.current + 1) % total) {
-      return 'z-10 translate-x-80 scale-90 opacity-50 w-[650px]';
-    }
-    return 'opacity-0 scale-75';
+  switchSlide(index: number) {
+    this.currentModalSlide = index;
   }
 }

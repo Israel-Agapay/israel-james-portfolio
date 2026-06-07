@@ -1,106 +1,210 @@
-<section id="about" class="relative min-h-screen flex items-center justify-center bg-black text-white">
-  <div class="absolute -middle-0 -left-40 w-[400px] h-[400px] bg-white/10 rounded-full blur-3xl"></div>
-  <div class="absolute top-20 right-0 w-[400px] h-[300px] bg-white/10 rounded-full blur-3xl"></div>
+<section id="about" class="relative min-h-screen flex items-center justify-center bg-black text-white py-20 overflow-hidden">
 
-  <div class="relative z-0 flex flex-col xl:flex-row items-center gap-16 px-6 sm:px-12 transition-all duration-500"
+  <!-- BG BLOBS -->
+  <div class="absolute -left-40 top-20 w-[500px] h-[500px] bg-white/5 rounded-full blur-3xl"></div>
+  <div class="absolute right-0 bottom-0 w-[400px] h-[300px] bg-white/5 rounded-full blur-3xl"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-red-900/5 rounded-full blur-3xl"></div>
+
+  <div class="relative z-10 w-full transition-all duration-500 px-6 sm:px-12 lg:px-20"
     [ngClass]="{'xl:ml-[280px]': isSidebarOpen, 'ml-0': !isSidebarOpen}">
 
-    <div class="relative group m-4 sm:m-6 lg:m-10 max-w-5xl w-full backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-10 shadow-3xl overflow-hidden"
-      (mousemove)="onGlowMove($event)"
-      (mouseleave)="onGlowLeave()"
-      [style.--x]="glowX"
-      [style.--y]="glowY">
+    <!-- TOP — PHOTO + INFO -->
+    <div class="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-16 mb-16 items-center">
 
-      <div class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-           style="padding: 3px; background: radial-gradient(500px circle at var(--x) var(--y), rgba(255, 0, 0, 1),
-              rgba(255, 0, 0, 0.6) 25%, rgba(255, 0, 0, 0.2) 45%, transparent 60%);
-              -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-              -webkit-mask-composite: xor; mask-composite: exclude;">
-      </div>
-
-      <!-- IMAGE + ABOUT TEXT -->
-      <div class="flex flex-col xl:flex-row items-center gap-10">
-
-        <!-- PROFILE IMAGE -->
-        <div class="relative shrink-0 about-item about-image">
-          <div class="absolute inset-0 rounded-2xl blur-lg bg-gradient-to-r from-red-900 via-[#7a1c28] to-black opacity-40"></div>
-          <img src="assets/PicAbout.png" alt="About Image"
-            class="relative w-[220px] sm:w-[260px] rounded-2xl object-cover shadow-xl"/>
+      <!-- PHOTO -->
+      <div class="flex flex-col items-center lg:items-start about-item about-image">
+        <div class="relative">
+          <div class="absolute inset-0 rounded-2xl blur-2xl bg-gradient-to-b from-[#dc2626]/20 to-transparent"></div>
+          <div class="absolute -inset-0.5 rounded-2xl bg-gradient-to-b from-[#dc2626]/30 to-transparent opacity-50"></div>
+          <img src="assets/PicAbout.png" alt="Israel James"
+            class="relative w-[220px] sm:w-[260px] lg:w-full rounded-2xl object-cover shadow-2xl"/>
         </div>
-
-        <!-- ABOUT TEXT -->
-        <div class="text-center xl:text-left flex flex-col items-center xl:items-start gap-6 about-item about-text">
-          <h2 class="text-4xl sm:text-5xl font-bold about-item about-title">
-            <span class="bg-gradient-to-b from-[#f2f2f2] via-[#cfcfcf] to-[#9e9e9e] bg-clip-text text-transparent">
-              About
+        <!-- NAME TAG BELOW PHOTO -->
+        <div class="mt-4 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full
+                      bg-[#dc2626]/10 border border-[#dc2626]/25">
+            <div class="w-1.5 h-1.5 rounded-full bg-[#dc2626] animate-pulse"></div>
+            <span class="text-[10px] tracking-[0.15em] text-[#dc2626] uppercase font-medium">
+              BSIT Student
             </span>
-            <span class="bg-gradient-to-b from-[#f2f2f2] via-[#cfcfcf] to-[#9e9e9e] bg-clip-text text-transparent">
-              Me
-            </span>
-          </h2>
-          <p class="text-gray-300 leading-relaxed max-w-2xl about-item about-text">
-            I am a BSIT student passionate about web and game development. I can create
-            responsive websites and design modern, user-friendly UI layouts. I also have
-            experience developing offline 2D and 3D games, which improves my creativity
-            and technical skills.
-          </p>
-          <!-- BUTTONS -->
-          <div class="flex flex-wrap gap-4 justify-center xl:justify-start mt-4 about-item about-text">
-            <a href="assets/Agapay, Israel James - Resume.pdf" download
-              class="px-8 py-3 rounded-full border border-[#a4161a] text-[#ff4d4d] hover:bg-[#a4161a] hover:text-white transition-all duration-300">
-              Download CV
-            </a>
-            <a href="#contact"
-              class="px-8 py-3 rounded-full border border-[#7a1c28] text-[#ff6b6b] hover:bg-[#7a1c28] hover:text-white transition-all duration-300">
-              Contact Me
-            </a>
           </div>
         </div>
       </div>
 
-      <!-- STATS -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 my-10 text-center about-item about-text">
-        <div>
-          <p class="text-3xl font-bold text-[#ff4d4d]">5+</p>
-          <p class="text-gray-400 text-sm">Projects</p>
+      <!-- INFO -->
+      <div class="flex flex-col gap-6">
+
+        <!-- EYEBROW + NAME -->
+        <div class="about-item about-title">
+          <div class="text-[9px] tracking-[0.3em] text-[#dc2626] uppercase mb-3">
+            About Me
+          </div>
+          <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4">
+            Israel James
+            <span class="text-[#dc2626]"> Agapay</span>
+          </h2>
+          <p class="text-sm text-white/40 leading-relaxed max-w-2xl">
+            A passionate BSIT student focused on creating clean, modern websites
+            and immersive game experiences. I combine creativity and technical
+            skill to build digital solutions that make a real impact.
+          </p>
         </div>
-        <div>
-          <p class="text-3xl font-bold text-[#ff4d4d]">2+</p>
-          <p class="text-gray-400 text-sm">Years Coding</p>
+
+        <!-- INFO CARDS -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 about-item about-text">
+
+          <div class="group p-4 rounded-xl border border-white/7 bg-white/3
+                      hover:border-[#dc2626]/40 hover:bg-[#dc2626]/5
+                      transition-all duration-300 cursor-default">
+            <div class="flex items-center gap-1.5 mb-2">
+              <span class="text-base">🎓</span>
+              <span class="text-[8px] tracking-[0.15em] text-white/25 uppercase">Education</span>
+            </div>
+            <div class="text-xs font-semibold text-white/80 leading-snug">
+              BS Information Technology
+            </div>
+          </div>
+
+          <div class="group p-4 rounded-xl border border-white/7 bg-white/3
+                      hover:border-[#dc2626]/40 hover:bg-[#dc2626]/5
+                      transition-all duration-300 cursor-default">
+            <div class="flex items-center gap-1.5 mb-2">
+              <span class="text-base">📍</span>
+              <span class="text-[8px] tracking-[0.15em] text-white/25 uppercase">Location</span>
+            </div>
+            <div class="text-xs font-semibold text-white/80 leading-snug">
+              Philippines
+            </div>
+          </div>
+
+          <div class="group p-4 rounded-xl border border-white/7 bg-white/3
+                      hover:border-[#dc2626]/40 hover:bg-[#dc2626]/5
+                      transition-all duration-300 cursor-default">
+            <div class="flex items-center gap-1.5 mb-2">
+              <span class="text-base">💼</span>
+              <span class="text-[8px] tracking-[0.15em] text-white/25 uppercase">Experience</span>
+            </div>
+            <div class="text-xs font-semibold text-white/80 leading-snug">
+              Internship + Project Based
+            </div>
+          </div>
+
+          <div class="group p-4 rounded-xl border border-white/7 bg-white/3
+                      hover:border-[#dc2626]/40 hover:bg-[#dc2626]/5
+                      transition-all duration-300 cursor-default">
+            <div class="flex items-center gap-1.5 mb-2">
+              <span class="text-base">⚡</span>
+              <span class="text-[8px] tracking-[0.15em] text-white/25 uppercase">Focus</span>
+            </div>
+            <div class="text-xs font-semibold text-white/80 leading-snug">
+              Front-End Development
+            </div>
+          </div>
+
         </div>
-        <div>
-          <p class="text-3xl font-bold text-[#ff4d4d]">2D / 3D</p>
-          <p class="text-gray-400 text-sm">Game Dev</p>
+
+        <!-- BUTTONS -->
+        <div class="flex flex-wrap gap-3 about-item about-text">
+          <a href="assets/Agapay, Israel James - Resume.pdf" download
+            class="px-7 py-3 rounded-xl bg-[#dc2626] hover:bg-[#b91c1c]
+                   text-white text-sm font-semibold transition-colors duration-200
+                   shadow-[0_0_20px_rgba(220,38,38,0.3)]">
+            Download CV
+          </a>
+          <a href="#contact"
+            class="px-7 py-3 rounded-xl border border-white/15
+                   text-white/60 hover:text-white hover:border-white/35
+                   text-sm font-semibold transition-all duration-200">
+            Contact Me
+          </a>
         </div>
-        <div>
-          <p class="text-3xl font-bold text-[#ff4d4d]">UI / UX</p>
-          <p class="text-gray-400 text-sm">Design</p>
+
+      </div>
+    </div>
+
+    <!-- DIVIDER -->
+    <div class="flex items-center gap-4 mb-12 about-item about-text">
+      <div class="h-px flex-1 bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+    </div>
+
+    <!-- BOTTOM — JOURNEY & VISION -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+
+      <!-- MY JOURNEY -->
+      <div class="about-item about-text">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="w-6 h-0.5 bg-[#dc2626]"></div>
+          <h3 class="text-xl font-semibold">
+            My <span class="text-[#dc2626]">Journey</span>
+          </h3>
+        </div>
+
+        <!-- TIMELINE -->
+        <div class="relative pl-6">
+          <div class="absolute left-0 top-2 bottom-2 w-px bg-gradient-to-b from-[#dc2626] via-[#dc2626]/40 to-transparent"></div>
+
+          <div class="relative mb-8">
+            <div class="absolute -left-6 top-2 w-2.5 h-2.5 rounded-full bg-[#dc2626] shadow-[0_0_8px_rgba(220,38,38,0.6)]"></div>
+            <div class="text-[9px] tracking-[0.2em] text-[#dc2626] uppercase font-medium mb-2">Started</div>
+            <div class="text-sm text-white/40 leading-relaxed">
+              Started with curiosity and a passion for creating things people can interact with.
+            </div>
+          </div>
+
+          <div class="relative mb-8">
+            <div class="absolute -left-6 top-2 w-2.5 h-2.5 rounded-full bg-[#dc2626] shadow-[0_0_8px_rgba(220,38,38,0.6)]"></div>
+            <div class="text-[9px] tracking-[0.2em] text-[#dc2626] uppercase font-medium mb-2">Explored</div>
+            <div class="text-sm text-white/40 leading-relaxed">
+              Explored web development, UI design, and game development — learning how creativity and logic work together.
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="absolute -left-6 top-2 w-2.5 h-2.5 rounded-full bg-[#dc2626] shadow-[0_0_8px_rgba(220,38,38,0.6)]"></div>
+            <div class="text-[9px] tracking-[0.2em] text-[#dc2626] uppercase font-medium mb-2">Now</div>
+            <div class="text-sm text-white/40 leading-relaxed">
+              Building real projects that combine modern design with functional code.
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- MY JOURNEY & VISION -->
-      <div class="mt-3 text-center xl:text-left about-item about-text">
-        <h3 class="text-4xl sm:text-5xl font-bold mb-6 leading-tight about-item about-title">
-          <span class="font-medium bg-gradient-to-b from-[#f2f2f2] via-[#cfcfcf] to-[#9e9e9e] bg-clip-text text-transparent">
-            My Journey &
-          </span>
-          <span class="font-medium bg-gradient-to-b from-[#ffd166] via-[#ffb703] to-[#9d0208] bg-clip-text text-transparent">
-            Vision
-          </span>
-        </h3>
-        <p class="text-gray-300 leading-relaxed max-w-3xl mb-6 about-item about-text">
-          My journey started with curiosity and a passion for creating things that
-          people can interact with. Over time, I explored web development, UI design,
-          and game development each helping me understand how creativity and logic
-          work together.
+      <!-- MY VISION -->
+      <div class="about-item about-text">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="w-6 h-0.5 bg-[#dc2626]"></div>
+          <h3 class="text-xl font-semibold">
+            My <span class="text-[#dc2626]">Vision</span>
+          </h3>
+        </div>
+
+        <p class="text-sm text-white/40 leading-relaxed mb-6">
+          To continuously grow as a developer and designer — building
+          meaningful digital experiences that combine functionality,
+          aesthetics, and innovation.
         </p>
-        <p class="text-gray-400 leading-relaxed max-w-3xl about-item about-text">
-          My vision is to continuously grow as a developer and designer, building
-          meaningful digital experiences that combine functionality, aesthetics,
-          and innovation. I aim to push my skills further and contribute to projects
-          that make a real impact.
+        <p class="text-sm text-white/40 leading-relaxed mb-8">
+          I aim to push my skills further and contribute to projects
+          that make a real impact in people's lives.
         </p>
+
+        <!-- VISION HIGHLIGHTS -->
+        <div class="flex flex-col gap-3">
+          <div class="flex items-center gap-3 text-sm text-white/50">
+            <div class="w-1 h-1 rounded-full bg-[#dc2626] flex-shrink-0"></div>
+            Build impactful web solutions
+          </div>
+          <div class="flex items-center gap-3 text-sm text-white/50">
+            <div class="w-1 h-1 rounded-full bg-[#dc2626] flex-shrink-0"></div>
+            Create immersive game experiences
+          </div>
+          <div class="flex items-center gap-3 text-sm text-white/50">
+            <div class="w-1 h-1 rounded-full bg-[#dc2626] flex-shrink-0"></div>
+            Continuously learn and grow as a developer
+          </div>
+        </div>
       </div>
+
     </div>
   </div>
 </section>

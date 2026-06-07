@@ -1,3 +1,14 @@
+.about-card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.about-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .about-item {
   opacity: 0;
   transition: opacity 0.8s ease, transform 0.8s ease;
@@ -23,3 +34,7 @@
 .about-image.show { transition-delay: 0.2s; }
 .about-title.show { transition-delay: 0.35s; }
 .about-text.show  { transition-delay: 0.45s; }
+
+.info-card {
+  transition: border-color 0.2s ease;
+}

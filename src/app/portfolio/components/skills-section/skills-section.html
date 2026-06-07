@@ -7,9 +7,10 @@
     <div class="absolute bottom-0 right-0 w-[400px] h-[300px] bg-white/10 rounded-full blur-3xl"></div>
 
     <div class="relative max-w-7xl mx-auto px-6 py-28">
+
       <!-- HEADER -->
-      <span class="inline-block mb-6 px-4 py-1 rounded-full bg-white/10 text-sm tracking-widest">
-        SKILLS
+      <span class="inline-block mb-6 px-4 py-1 rounded-full bg-white/10 text-sm tracking-widest uppercase">
+        Skills
       </span>
 
       <h2 class="text-4xl sm:text-5xl font-light mb-20">
@@ -17,130 +18,251 @@
           Superpowers</span>
       </h2>
 
-      <!-- SKILLS GRID -->
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
-
-        <!-- Figma -->
-        <div class="skill-card reveal group backdrop-blur-md hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
-          (mousemove)="onGlowMove($event)" (mouseleave)="onGlowLeave()"
-          [style.--x]="glowX" [style.--y]="glowY">
-          <div class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            style="padding: 3px; background: radial-gradient(280px circle at var(--x) var(--y), rgba(255,0,0,0.9), rgba(255,0,0,0.5) 22%, rgba(255,0,0,0.15) 38%, transparent 48%);
-                   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude;">
-          </div>
-          <div class="flex items-center justify-center mb-6 h-14">
-            <img src="assets/figma.png" class="h-12" />
-          </div>
-          <p class="text-center text-lg font-semibold">90%</p>
-          <p class="text-center text-sm-7 text-white/60 mt-1">Figma</p>
+      <!-- ── FRONTEND ── -->
+      <div class="mb-16">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="w-8 h-[2px] bg-gradient-to-r from-[#f2f2f2] via-[#cfcfcf] to-[#9e9e9e]"></div>
+          <span class="reveal delay-400 text-[23px] sm:text-[1.5rem] font-bold leading-tight bg-gradient-to-b from-[#ffd166] via-[#ffb703] to-[#9d0208] bg-clip-text text-transparent">
+            Frontend Frameworks
+          </span>
+          <div class="flex-1 h-[0.5px] bg-white/10"></div>
         </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 frontend-group">
 
-        <!-- Angular -->
-        <div class="skill-card group backdrop-blur-md hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
-          (mousemove)="onGlowMove($event)" (mouseleave)="onGlowLeave()"
-          [style.--x]="glowX" [style.--y]="glowY">
-          <div class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            style="padding: 3px; background: radial-gradient(280px circle at var(--x) var(--y), rgba(255,0,0,0.9), rgba(255,0,0,0.5) 22%, rgba(255,0,0,0.15) 38%, transparent 48%);
-                   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude;">
+          <!-- Angular -->
+          <div class="skill-card group backdrop-blur-md hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
+            (mousemove)="onGlowMove($event)" (mouseleave)="onGlowLeave()"
+            [style.--x]="glowX" [style.--y]="glowY">
+            <div class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              style="padding:3px;background:radial-gradient(280px circle at var(--x) var(--y),rgba(255,0,0,.9),rgba(255,0,0,.5) 22%,rgba(255,0,0,.15) 38%,transparent 48%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;"></div>
+            <div class="flex items-center justify-center mb-6 h-14">
+              <img src="assets/Angular.png" class="h-12" alt="Angular" />
+            </div>
+            <p class="text-center text-sm text-white/60">Angular</p>
           </div>
-          <div class="flex items-center justify-center mb-6 h-14">
-            <img src="assets/Angular.png" class="h-12" />
+
+          <!-- React Native -->
+          <div class="skill-card group backdrop-blur-md hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
+            (mousemove)="onGlowMove($event)" (mouseleave)="onGlowLeave()"
+            [style.--x]="glowX" [style.--y]="glowY">
+            <div class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              style="padding:3px;background:radial-gradient(280px circle at var(--x) var(--y),rgba(255,0,0,.9),rgba(255,0,0,.5) 22%,rgba(255,0,0,.15) 38%,transparent 48%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;"></div>
+            <div class="flex items-center justify-center mb-6 h-14">
+              <img src="assets/react-native.png" class="h-12" alt="React Native" />
+            </div>
+            <p class="text-center text-sm text-white/60">React Native</p>
           </div>
-          <p class="text-center text-lg font-semibold">80%</p>
-          <p class="text-center text-sm-7 text-white/60 mt-1">Angular</p>
+
+          <!-- JavaScript -->
+          <div class="skill-card group backdrop-blur-md hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
+            (mousemove)="onGlowMove($event)" (mouseleave)="onGlowLeave()"
+            [style.--x]="glowX" [style.--y]="glowY">
+            <div class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              style="padding:3px;background:radial-gradient(280px circle at var(--x) var(--y),rgba(255,0,0,.9),rgba(255,0,0,.5) 22%,rgba(255,0,0,.15) 38%,transparent 48%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;"></div>
+            <div class="flex items-center justify-center mb-6 h-14">
+              <img src="assets/react-native.png" class="h-12" alt="JavaScript" />
+            </div>
+            <p class="text-center text-sm text-white/60">React.js</p>
+          </div>
+
         </div>
-
-        <!-- Photoshop -->
-        <div class="skill-card group backdrop-blur-md hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
-          (mousemove)="onGlowMove($event)" (mouseleave)="onGlowLeave()"
-          [style.--x]="glowX" [style.--y]="glowY">
-          <div class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            style="padding: 3px; background: radial-gradient(280px circle at var(--x) var(--y), rgba(255,0,0,0.9), rgba(255,0,0,0.5) 22%, rgba(255,0,0,0.15) 38%, transparent 48%);
-                   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude;">
-          </div>
-          <div class="flex items-center justify-center mb-6 h-14">
-            <img src="assets/photoshop.png" class="h-12" />
-          </div>
-          <p class="text-center text-lg font-semibold">50%</p>
-          <p class="text-center text-sm-7 text-white/60 mt-1">Photoshop</p>
-        </div>
-
-        <!-- HTML -->
-        <div class="skill-card group backdrop-blur-md hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
-          (mousemove)="onGlowMove($event)" (mouseleave)="onGlowLeave()"
-          [style.--x]="glowX" [style.--y]="glowY">
-          <div class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            style="padding: 3px; background: radial-gradient(280px circle at var(--x) var(--y), rgba(255,0,0,0.9), rgba(255,0,0,0.5) 22%, rgba(255,0,0,0.15) 38%, transparent 48%);
-                   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude;">
-          </div>
-          <div class="flex items-center justify-center mb-6 h-14">
-            <img src="assets/html.png" class="h-12" />
-          </div>
-          <p class="text-center text-lg font-semibold">95%</p>
-          <p class="text-center text-sm-7 text-white/60 mt-1">HTML 5</p>
-        </div>
-
-        <!-- Tailwind -->
-        <div class="skill-card group backdrop-blur-md hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
-          (mousemove)="onGlowMove($event)" (mouseleave)="onGlowLeave()"
-          [style.--x]="glowX" [style.--y]="glowY">
-          <div class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            style="padding: 3px; background: radial-gradient(280px circle at var(--x) var(--y), rgba(255,0,0,0.9), rgba(255,0,0,0.5) 22%, rgba(255,0,0,0.15) 38%, transparent 48%);
-                   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude;">
-          </div>
-          <div class="flex items-center justify-center mb-6 h-14">
-            <img src="assets/tailwind.png" class="h-12" />
-          </div>
-          <p class="text-center text-lg font-semibold">60%</p>
-          <p class="text-center text-sm-7 text-white/60 mt-1">Tailwind</p>
-        </div>
-
-        <!-- CSS -->
-        <div class="skill-card group backdrop-blur-md hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
-          (mousemove)="onGlowMove($event)" (mouseleave)="onGlowLeave()"
-          [style.--x]="glowX" [style.--y]="glowY">
-          <div class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            style="padding: 3px; background: radial-gradient(280px circle at var(--x) var(--y), rgba(255,0,0,0.9), rgba(255,0,0,0.5) 22%, rgba(255,0,0,0.15) 38%, transparent 48%);
-                   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude;">
-          </div>
-          <div class="flex items-center justify-center mb-6 h-14">
-            <img src="assets/css.png" class="h-12" />
-          </div>
-          <p class="text-center text-lg font-semibold">80%</p>
-          <p class="text-center text-sm-7 text-white/60 mt-1">Css 3</p>
-        </div>
-
-        <!-- Javascript -->
-        <div class="skill-card group backdrop-blur-md hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
-          (mousemove)="onGlowMove($event)" (mouseleave)="onGlowLeave()"
-          [style.--x]="glowX" [style.--y]="glowY">
-          <div class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            style="padding: 3px; background: radial-gradient(280px circle at var(--x) var(--y), rgba(255,0,0,0.9), rgba(255,0,0,0.5) 22%, rgba(255,0,0,0.15) 38%, transparent 48%);
-                   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude;">
-          </div>
-          <div class="flex items-center justify-center mb-6 h-14">
-            <img src="assets/js.png" class="h-12" />
-          </div>
-          <p class="text-center text-lg font-semibold">55%</p>
-          <p class="text-center text-sm-7 text-white/60 mt-1">Javascript</p>
-        </div>
-
-        <!-- PHP -->
-        <div class="skill-card group backdrop-blur-md hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
-          (mousemove)="onGlowMove($event)" (mouseleave)="onGlowLeave()"
-          [style.--x]="glowX" [style.--y]="glowY">
-          <div class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            style="padding: 3px; background: radial-gradient(280px circle at var(--x) var(--y), rgba(255,0,0,0.9), rgba(255,0,0,0.5) 22%, rgba(255,0,0,0.15) 38%, transparent 48%);
-                   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude;">
-          </div>
-          <div class="flex items-center justify-center mb-6 h-14">
-            <img src="assets/php.png" class="h-25" />
-          </div>
-          <p class="text-center text-lg font-semibold">60%</p>
-          <p class="text-center text-sm text-white/60 mt-1">Php</p>
-        </div>
-
       </div>
+
+      <!-- Core Technologies -->
+       <div class="mb-16">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="w-8 h-[2px] bg-gradient-to-r from-[#f2f2f2] via-[#cfcfcf] to-[#9e9e9e]"></div>
+          <span class="reveal delay-400 text-[23px] sm:text-[1.5rem] font-bold leading-tight bg-gradient-to-b from-[#ffd166] via-[#ffb703] to-[#9d0208] bg-clip-text text-transparent">
+            Core Web Technologies
+          </span>
+          <div class="flex-1 h-[0.5px] bg-white/10"></div>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 core-group">
+
+
+          <!-- HTML 5 -->
+          <div class="skill-card group backdrop-blur-md hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
+            (mousemove)="onGlowMove($event)" (mouseleave)="onGlowLeave()"
+            [style.--x]="glowX" [style.--y]="glowY">
+            <div class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              style="padding:3px;background:radial-gradient(280px circle at var(--x) var(--y),rgba(255,0,0,.9),rgba(255,0,0,.5) 22%,rgba(255,0,0,.15) 38%,transparent 48%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;"></div>
+            <div class="flex items-center justify-center mb-6 h-14">
+              <img src="assets/html.png" class="h-12" alt="HTML 5" />
+            </div>
+            <p class="text-center text-sm text-white/60">HTML 5</p>
+          </div>
+
+          <!-- CSS 3 -->
+          <div class="skill-card group backdrop-blur-md hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
+            (mousemove)="onGlowMove($event)" (mouseleave)="onGlowLeave()"
+            [style.--x]="glowX" [style.--y]="glowY">
+            <div class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              style="padding:3px;background:radial-gradient(280px circle at var(--x) var(--y),rgba(255,0,0,.9),rgba(255,0,0,.5) 22%,rgba(255,0,0,.15) 38%,transparent 48%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;"></div>
+            <div class="flex items-center justify-center mb-6 h-14">
+              <img src="assets/css.png" class="h-12" alt="CSS 3" />
+            </div>
+            <p class="text-center text-sm text-white/60">CSS 3</p>
+          </div>
+
+          <!-- Tailwind -->
+          <div class="skill-card group backdrop-blur-md hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
+            (mousemove)="onGlowMove($event)" (mouseleave)="onGlowLeave()"
+            [style.--x]="glowX" [style.--y]="glowY">
+            <div class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              style="padding:3px;background:radial-gradient(280px circle at var(--x) var(--y),rgba(255,0,0,.9),rgba(255,0,0,.5) 22%,rgba(255,0,0,.15) 38%,transparent 48%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;"></div>
+            <div class="flex items-center justify-center mb-6 h-14">
+              <img src="assets/tailwind.png" class="h-12" alt="Tailwind" />
+            </div>
+            <p class="text-center text-sm text-white/60">Tailwind</p>
+          </div>
+
+          <!-- TypeScript -->
+          <div class="skill-card group backdrop-blur-md hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
+            (mousemove)="onGlowMove($event)" (mouseleave)="onGlowLeave()"
+            [style.--x]="glowX" [style.--y]="glowY">
+            <div class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              style="padding:3px;background:radial-gradient(280px circle at var(--x) var(--y),rgba(255,0,0,.9),rgba(255,0,0,.5) 22%,rgba(255,0,0,.15) 38%,transparent 48%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;"></div>
+            <div class="flex items-center justify-center mb-6 h-14">
+              <img src="assets/typescript.png" class="h-12" alt="TypeScript" />
+            </div>
+            <p class="text-center text-sm text-white/60">TypeScript</p>
+          </div>
+
+          <!-- JavaScript -->
+          <div class="skill-card group backdrop-blur-md hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
+            (mousemove)="onGlowMove($event)" (mouseleave)="onGlowLeave()"
+            [style.--x]="glowX" [style.--y]="glowY">
+            <div class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              style="padding:3px;background:radial-gradient(280px circle at var(--x) var(--y),rgba(255,0,0,.9),rgba(255,0,0,.5) 22%,rgba(255,0,0,.15) 38%,transparent 48%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;"></div>
+            <div class="flex items-center justify-center mb-6 h-14">
+              <img src="assets/js.png" class="h-12" alt="JavaScript" />
+            </div>
+            <p class="text-center text-sm text-white/60">JavaScript</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── BACKEND & DATABASE ── -->
+      <div class="mb-16">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="w-8 h-[2px] bg-gradient-to-r from-[#f2f2f2] via-[#cfcfcf] to-[#9e9e9e]"></div>
+          <span class="reveal delay-400 text-[23px] sm:text-[1.5rem] font-bold leading-tight bg-gradient-to-b from-[#ffd166] via-[#ffb703] to-[#9d0208] bg-clip-text text-transparent">Backend &amp; Database</span>
+          <div class="flex-1 h-[0.5px] bg-white/10"></div>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 backend-group">
+
+          <!-- Node.js -->
+          <div class="skill-card group backdrop-blur-md hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
+            (mousemove)="onGlowMove($event)" (mouseleave)="onGlowLeave()"
+            [style.--x]="glowX" [style.--y]="glowY">
+            <div class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              style="padding:3px;background:radial-gradient(280px circle at var(--x) var(--y),rgba(255,0,0,.9),rgba(255,0,0,.5) 22%,rgba(255,0,0,.15) 38%,transparent 48%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;"></div>
+            <div class="flex items-center justify-center mb-6 h-14">
+              <img src="assets/nodejs.png" class="h-12" alt="Node.js" />
+            </div>
+            <p class="text-center text-sm text-white/60">Node.js</p>
+          </div>
+
+          <!-- Express.js -->
+          <div class="skill-card group backdrop-blur-md hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
+            (mousemove)="onGlowMove($event)" (mouseleave)="onGlowLeave()"
+            [style.--x]="glowX" [style.--y]="glowY">
+            <div class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              style="padding:3px;background:radial-gradient(280px circle at var(--x) var(--y),rgba(255,0,0,.9),rgba(255,0,0,.5) 22%,rgba(255,0,0,.15) 38%,transparent 48%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;"></div>
+            <div class="flex items-center justify-center mb-6 h-14">
+              <img src="assets/express.png" class="h-12" alt="Express.js" />
+            </div>
+            <p class="text-center text-sm text-white/60">Express.js</p>
+          </div>
+
+          <!-- MongoDB -->
+          <div class="skill-card group backdrop-blur-md hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
+            (mousemove)="onGlowMove($event)" (mouseleave)="onGlowLeave()"
+            [style.--x]="glowX" [style.--y]="glowY">
+            <div class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              style="padding:3px;background:radial-gradient(280px circle at var(--x) var(--y),rgba(255,0,0,.9),rgba(255,0,0,.5) 22%,rgba(255,0,0,.15) 38%,transparent 48%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;"></div>
+            <div class="flex items-center justify-center mb-6 h-14">
+              <img src="assets/mongodb.png" class="h-12" alt="MongoDB" />
+            </div>
+            <p class="text-center text-sm text-white/60">MongoDB</p>
+          </div>
+
+          <!-- PHP -->
+          <div class="skill-card group backdrop-blur-md hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
+            (mousemove)="onGlowMove($event)" (mouseleave)="onGlowLeave()"
+            [style.--x]="glowX" [style.--y]="glowY">
+            <div class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              style="padding:3px;background:radial-gradient(280px circle at var(--x) var(--y),rgba(255,0,0,.9),rgba(255,0,0,.5) 22%,rgba(255,0,0,.15) 38%,transparent 48%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;"></div>
+            <div class="flex items-center justify-center mb-6 h-14">
+              <img src="assets/php.png" class="h-12" alt="PHP" />
+            </div>
+            <p class="text-center text-sm text-white/60">PHP</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── DESIGN & TOOLS ── -->
+      <div class="mb-16">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="w-8 h-[2px] bg-gradient-to-r from-[#f2f2f2] via-[#cfcfcf] to-[#9e9e9e]"></div>
+          <span class="reveal delay-400 text-[23px] sm:text-[1.5rem] font-bold leading-tight bg-gradient-to-b from-[#ffd166] via-[#ffb703] to-[#9d0208] bg-clip-text text-transparent">Styling &amp; Tools</span>
+          <div class="flex-1 h-[0.5px] bg-white/10"></div>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 tools-group">
+
+          <!-- Photoshop -->
+          <div class="skill-card group backdrop-blur-md hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
+            (mousemove)="onGlowMove($event)" (mouseleave)="onGlowLeave()"
+            [style.--x]="glowX" [style.--y]="glowY">
+            <div class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              style="padding:3px;background:radial-gradient(280px circle at var(--x) var(--y),rgba(255,0,0,.9),rgba(255,0,0,.5) 22%,rgba(255,0,0,.15) 38%,transparent 48%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;"></div>
+            <div class="flex items-center justify-center mb-6 h-14">
+              <img src="assets/photoshop.png" class="h-12" alt="Photoshop" />
+            </div>
+            <p class="text-center text-sm text-white/60">Photoshop</p>
+          </div>
+
+          <!-- Git -->
+          <div class="skill-card group backdrop-blur-md hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
+            (mousemove)="onGlowMove($event)" (mouseleave)="onGlowLeave()"
+            [style.--x]="glowX" [style.--y]="glowY">
+            <div class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              style="padding:3px;background:radial-gradient(280px circle at var(--x) var(--y),rgba(255,0,0,.9),rgba(255,0,0,.5) 22%,rgba(255,0,0,.15) 38%,transparent 48%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;"></div>
+            <div class="flex items-center justify-center mb-6 h-14">
+              <img src="assets/git.png" class="h-12" alt="Git" />
+            </div>
+            <p class="text-center text-sm text-white/60">Git</p>
+          </div>
+
+          <!-- GitHub -->
+          <div class="skill-card group backdrop-blur-md hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
+            (mousemove)="onGlowMove($event)" (mouseleave)="onGlowLeave()"
+            [style.--x]="glowX" [style.--y]="glowY">
+            <div class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              style="padding:3px;background:radial-gradient(280px circle at var(--x) var(--y),rgba(255,0,0,.9),rgba(255,0,0,.5) 22%,rgba(255,0,0,.15) 38%,transparent 48%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;"></div>
+            <div class="flex items-center justify-center mb-6 h-14">
+              <img src="assets/github.png" class="h-12" alt="GitHub" />
+            </div>
+            <p class="text-center text-sm text-white/60">GitHub</p>
+          </div>
+
+                    <!-- Figma -->
+          <div class="skill-card reveal group backdrop-blur-md hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
+            (mousemove)="onGlowMove($event)" (mouseleave)="onGlowLeave()"
+            [style.--x]="glowX" [style.--y]="glowY">
+            <div class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              style="padding:3px;background:radial-gradient(280px circle at var(--x) var(--y),rgba(255,0,0,.9),rgba(255,0,0,.5) 22%,rgba(255,0,0,.15) 38%,transparent 48%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;"></div>
+            <div class="flex items-center justify-center mb-6 h-14">
+              <img src="assets/figma.png" class="h-12" alt="Figma" />
+            </div>
+            <p class="text-center text-sm text-white/60">Figma</p>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
