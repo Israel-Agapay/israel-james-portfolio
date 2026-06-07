@@ -1,17 +1,16 @@
 <section id="about" class="relative bg-black text-white py-24 overflow-hidden">
 
   <!-- BG BLOBS -->
-<!-- BG DESIGN -->
-<div class="absolute inset-0" style="background:#080808;"></div>
-<div class="absolute -top-[60px] -left-[80px] w-[600px] h-[260px] rounded-full pointer-events-none"
-  style="background:linear-gradient(90deg,rgba(253, 253, 253, 0.18),rgba(255, 255, 255, 0.08),transparent);filter:blur(50px);transform:rotate(-15deg);"></div>
-<div class="absolute -bottom-[40px] -right-[60px] w-[500px] h-[200px] rounded-full pointer-events-none"
-  style="background:linear-gradient(90deg,transparent,rgba(247, 247, 247, 0.1),rgba(100,0,0,0.15));filter:blur(45px);transform:rotate(-10deg);"></div>
+<div class="absolute inset-0" style="background:#080810;"></div>
+<div class="absolute inset-0 opacity-[0.04] pointer-events-none"
+  style="background-image:linear-gradient(rgba(255,255,255,1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,1) 1px,transparent 1px);background-size:60px 60px;"></div>
 <div class="absolute inset-0 pointer-events-none"
-  style="background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,0.5));"></div>
-<div class="absolute top-0 left-0 right-0 h-px"
-  style="background:linear-gradient(90deg,transparent,rgba(39, 38, 38, 0.4),transparent);"></div>
-<div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+  style="background:radial-gradient(ellipse at center,transparent 80%,#080810 80%);"></div>
+<div class="absolute -bottom-[40px] -right-[40px] w-[350px] h-[350px] rounded-full pointer-events-none"
+  style="background:radial-gradient(circle,rgba(220,38,38,0.08),transparent 95%);"></div>
+<div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/8 to-transparent"></div>
+<div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/8 to-transparent"></div>
+
 
   <div class="relative z-10 w-full transition-all duration-500"
       [ngClass]="{'xl:pl-[280px]': isSidebarOpen, 'pl-0': !isSidebarOpen}">
