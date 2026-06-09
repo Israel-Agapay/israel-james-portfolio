@@ -62,7 +62,6 @@ export class ProjectsSectionComponent implements AfterViewInit {
   el.volume = 0;
   
   if (el.readyState >= 3) {
-    // Already loaded (cached), play immediately
     el.play().catch(() => {});
   } else {
     el.play().catch(() => {});
