@@ -63,14 +63,26 @@ export class Portfolio implements AfterViewInit {
   }
 
   @HostListener('window:scroll', [])
-  onAutoShowRightSidebar() {
-    if (this.isSidebarOpen) return;
-    const currentY = window.scrollY;
-    if (Math.abs(currentY - this.lastScrollY) > 10) {
-      this.isRightSidebarVisible = true;
+    onAutoShowRightSidebar() {
+      const currentY = window.scrollY;
+
+      // AUTO CLOSE LEFT SIDEBAR on scroll — works on ALL devices
+      if (this.isSidebarOpen && !this.isUserInteracting) {
+        this.isSidebarOpen = false;
+        this.isRightSidebarVisible = true;
+        this.lastScrollY = currentY;
+        return;
+      }
+
+      // SHOW RIGHT SIDEBAR on scroll
+      if (!this.isSidebarOpen) {
+        if (Math.abs(currentY - this.lastScrollY) > 10) {
+          this.isRightSidebarVisible = true;
+        }
+      }
+
+      this.lastScrollY = currentY;
     }
-    this.lastScrollY = currentY;
-  }
 
   ngAfterViewInit(): void {
 
@@ -208,7 +220,7 @@ export class Portfolio implements AfterViewInit {
   }
 
     private initMomentumScroll() {
-      if ('ontouchstart' in window) return; // desktop only
+      if ('ontouchstart' in window) return; 
 
       window.addEventListener(
         'wheel',
@@ -242,13 +254,6 @@ export class Portfolio implements AfterViewInit {
     private momentumScroll = () => {
       this.currentScroll += (this.targetScroll - this.currentScroll) * this.ease;
       window.scrollTo(0, this.currentScroll);
-
-      if (this.isSidebarOpen && !this.isUserInteracting) {
-      this.ngZone.run(() => {
-        this.isSidebarOpen = false;
-        this.isRightSidebarVisible = true; 
-      });
-    }
 
       if (Math.abs(this.targetScroll - this.currentScroll) > 0.5) {
         requestAnimationFrame(this.momentumScroll);
