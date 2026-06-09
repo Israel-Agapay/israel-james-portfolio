@@ -24,7 +24,7 @@ export class ProjectsSectionComponent implements AfterViewInit {
       year: '2025',
       type: 'Game Dev',
       tags: ['Unity', 'C#', '2D', 'Adventure'],
-      videoSrc: 'assets/video-project2.mp4',
+      videoSrc: 'assets/video-project4.mp4',
       slides: ['assets/Game1.png', 'assets/Game2.png', 'assets/Game3.png'],
       accentColor: 'red',
       reverse: false
