@@ -54,6 +54,8 @@
   transform: translateX(0) scale(1);
 }
 
+
+
 .sidebar-item:nth-child(1) { transition-delay: 0.50s; }
 .sidebar-item:nth-child(2) { transition-delay: 0.60s; }
 .sidebar-item:nth-child(3) { transition-delay: 0.70s; }
