@@ -60,25 +60,28 @@ export class HeroSectionComponent implements AfterViewInit {
   };
 
   private startTextAnimation() {
-    setInterval(() => {
-      const el = this.titleText.nativeElement;
-      el.classList.add(
-        'blur-sm', 'opacity-0', '-skew-x-6', 'translate-x-1', 'scale-105',
-        'drop-shadow-[2px_0_0_rgba(255,0,0,0.8)]',
-        'drop-shadow-[-2px_0_0_rgba(0,255,255,0.8)]'
-      );
+  setInterval(() => {
+    const el = this.titleText.nativeElement;
+
+    // Sweep LEFT — line moves from right to left, hiding the text
+    el.style.transition = 'clip-path 0.45s ease-in';
+    el.style.clipPath = 'inset(0 100% 0 0)';
+
+    setTimeout(() => {
+      // Change word while hidden
+      this.ngZone.run(() => {
+        this.currentIndex = (this.currentIndex + 1) % this.titles.length;
+        this.currentTitle = this.titles[this.currentIndex];
+        this.cdr.detectChanges();
+      });
+
+      // Sweep RIGHT — line moves from left to right, revealing new text
       setTimeout(() => {
-        this.ngZone.run(() => {
-          this.currentIndex = (this.currentIndex + 1) % this.titles.length;
-          this.currentTitle = this.titles[this.currentIndex];
-          this.cdr.detectChanges();
-        });
-        el.classList.remove(
-          'blur-sm', 'opacity-0', '-skew-x-6', 'translate-x-1', 'scale-105',
-          'drop-shadow-[2px_0_0_rgba(255,0,0,0.8)]',
-          'drop-shadow-[-2px_0_0_rgba(0,255,255,0.8)]'
-        );
-      }, 400);
-    }, 2500);
-  }
+        el.style.transition = 'clip-path 1.35s ease-out';
+        el.style.clipPath = 'inset(0 0% 0 0)';
+      }, 50);
+    }, 380);
+
+  }, 3000);
+}
 }

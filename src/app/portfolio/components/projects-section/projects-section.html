@@ -42,32 +42,57 @@
             <div class="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr]"
               [ngClass]="proj.reverse ? 'lg:grid-cols-[1fr_1.2fr]' : ''">
 
-              <!-- IMAGE SLIDESHOW -->
-              <div class="relative overflow-hidden min-h-[250px] sm:min-h-[300px]"
-                [ngClass]="proj.reverse ? 'lg:order-2' : 'lg:order-1'">
+              <!-- IMAGE / VIDEO -->
+            <div class="relative overflow-hidden min-h-[250px] sm:min-h-[300px]"
+              [ngClass]="proj.reverse ? 'lg:order-2' : 'lg:order-1'">
 
+              <!-- VIDEO (car web = index 1) -->
+              <video
+                #videoEl
+                class="absolute inset-0 w-full h-full object-cover"
+                loop playsinline
+                [muted]="true"
+                (canplay)="playVideo(videoEl)"
+                (loadeddata)="playVideo(videoEl)">
+                <source [src]="proj.videoSrc" type="video/mp4">
+              </video>
+
+              <!-- SLIDESHOW (rest of projects) -->
+              <ng-template #slideshow>
                 <ng-container *ngFor="let slide of proj.slides; let si = index">
                   <img [src]="slide" alt="Project"
                     class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
                     [ngClass]="si === slideshowIndexes[i] ? 'opacity-100' : 'opacity-0'"/>
                 </ng-container>
 
-                <!-- OVERLAY on hover -->
-                <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
-                  <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300
-                               text-white text-sm font-medium bg-black/50 px-4 py-2 rounded-full">
-                   Click To View Details →
-                  </span>
+                <!-- DOTS -->
+                <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+                  <ng-container *ngFor="let slide of proj.slides; let si = index">
+                    <div class="h-1.5 rounded-full transition-all duration-300"
+                      [ngClass]="si === slideshowIndexes[i] ? 'w-4 bg-white' : 'w-1.5 bg-white/30'">
+                    </div>
+                  </ng-container>
                 </div>
+              </ng-template>
 
-                <!-- TYPE BADGE -->
-                <span class="absolute top-4 left-4 text-[10px] font-semibold px-3 py-1 rounded-full z-10 backdrop-blur-sm"
-                  [ngClass]="{
-                    'bg-[rgba(0,0,0,0.35)] text-[#f0a0ff] border border-[rgba(232,121,249,0.6)]': proj.accentColor === 'purple',
-                    'bg-[rgba(0,0,0,0.35)] text-[#ff9999] border border-[rgba(220,38,38,0.6)]': proj.accentColor === 'red'
-                  }">
-                  {{ proj.type }}
+              <!-- OVERLAY on hover -->
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
+                <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300
+                            text-white text-sm font-medium bg-black/50 px-4 py-2 rounded-full">
+                Click To View Details →
                 </span>
+              </div>
+
+              <!-- TYPE BADGE -->
+              <span class="absolute top-4 left-4 text-[10px] font-semibold px-3 py-1 rounded-full z-10 backdrop-blur-sm"
+                [ngClass]="{
+                  'bg-[rgba(0,0,0,0.35)] text-[#f0a0ff] border border-[rgba(232,121,249,0.6)]': proj.accentColor === 'purple',
+                  'bg-[rgba(0,0,0,0.35)] text-[#ff9999] border border-[rgba(220,38,38,0.6)]': proj.accentColor === 'red'
+                }">
+                {{ proj.type }}
+              </span>
+
+
 
                 <!-- DOTS -->
                 <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">

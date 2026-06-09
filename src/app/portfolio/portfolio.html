@@ -1,45 +1,48 @@
-<app-sidebar
-  [isSidebarOpen]="isSidebarOpen"
-  [activeSection]="activeSection"
-  (toggle)="toggleMenu()">
-</app-sidebar>
+<div class="w-full overflow-x-hidden">
+  <app-sidebar
+    [isSidebarOpen]="isSidebarOpen"
+    [activeSection]="activeSection"
+    (toggle)="toggleMenu()">
+  </app-sidebar>
 
-<app-right-sidebar
-  [isRightSidebarVisible]="isRightSidebarVisible"
-  [activeSection]="activeSection"
-  (hide)="isRightSidebarVisible = false">
-</app-right-sidebar>
+  <app-right-sidebar
+    [isRightSidebarVisible]="isRightSidebarVisible"
+    [activeSection]="activeSection"
+    (hide)="isRightSidebarVisible = false">
+  </app-right-sidebar>
 
-<app-hero-section 
-  [isSidebarOpen]="isSidebarOpen">
-</app-hero-section>
+  <app-hero-section 
+    [isSidebarOpen]="isSidebarOpen">
+  </app-hero-section>
 
-<app-goal-section 
-  [isSidebarOpen]="isSidebarOpen">
-</app-goal-section>
+  <app-goal-section 
+    [isSidebarOpen]="isSidebarOpen">
+  </app-goal-section>
 
-<app-about-section 
-  [isSidebarOpen]="isSidebarOpen">
-</app-about-section>
+  <app-about-section 
+    [isSidebarOpen]="isSidebarOpen">
+  </app-about-section>
 
-<app-skills-section 
-  [isSidebarOpen]="isSidebarOpen">
-</app-skills-section>
+  <app-skills-section 
+    [isSidebarOpen]="isSidebarOpen">
+  </app-skills-section>
 
-<app-education-section 
-  [isSidebarOpen]="isSidebarOpen">
-</app-education-section>
+  <app-education-section 
+    [isSidebarOpen]="isSidebarOpen">
+  </app-education-section>
 
-<app-projects-section 
-  [isSidebarOpen]="isSidebarOpen">
-</app-projects-section>
+  <app-projects-section 
+    [isSidebarOpen]="isSidebarOpen">
+  </app-projects-section>
 
-<app-service-section 
-  [isSidebarOpen]="isSidebarOpen">
-</app-service-section>
+  <app-service-section 
+    [isSidebarOpen]="isSidebarOpen">
+  </app-service-section>
 
-<app-contact-section 
-  [isSidebarOpen]="isSidebarOpen">
-</app-contact-section>
+  <app-contact-section 
+    [isSidebarOpen]="isSidebarOpen">
+  </app-contact-section>
 
-<app-footer></app-footer>
+  <app-footer></app-footer>
+
+</div>
