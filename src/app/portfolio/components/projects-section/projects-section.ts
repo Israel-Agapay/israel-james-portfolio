@@ -52,8 +52,21 @@ export class ProjectsSectionComponent implements AfterViewInit {
       tags: ['React', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Express.js', 'MongoDB', 'JWT'],
       videoSrc: 'assets/video-project3.mp4',
       slides: ['assets/techstorePic1.png', 'assets/techstorePic2.png', 'assets/techstorePic3.png', 'assets/techstorePic4.png'],
-      accentColor: 'emerald',
+      accentColor: 'red',
       reverse: false
+    },
+    {
+      title: 'Mineshaft Escape',
+      shortTitle: 'Mineshaft Escape',
+      desc: 'A thrilling 2D survival game where the player must escape a collapsing mineshaft before time runs out. Features a countdown timer, dangerous obstacles that deplete lives, and collectible power-ups like shields and extra lives to help survive the chaos. Built in Unity with C#.',
+      role: 'Game Developer',
+      year: '2025',
+      type: 'Game Dev',
+      videoSrc: 'assets/video-project2.mp4',
+      tags: ['Unity', 'C#', '2D', 'Survival', 'Platformer'],
+      slides: ['assets/MineshaftPic1.png', 'assets/MineshaftPic2.png','assets/MineshaftPic3.png','assets/MineshaftPic4.png','assets/MineshaftPic5.png','assets/MineshaftPic6.png'],
+      accentColor: 'purple',
+      reverse: true
     }
   ];
 
@@ -68,7 +81,7 @@ export class ProjectsSectionComponent implements AfterViewInit {
   }
 }
 
-  slideshowIndexes: number[] = [0, 0, 0];
+  slideshowIndexes: number[] = [0, 0, 0, 0];
   private intervals: any[] = [];
 
   ngAfterViewInit(): void {

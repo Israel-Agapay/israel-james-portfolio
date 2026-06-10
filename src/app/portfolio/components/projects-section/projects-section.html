@@ -1,16 +1,15 @@
-
 <section id="projects" class="relative min-h-screen bg-[#080810] text-white py-20">
   
   <!-- BG DESIGN -->
-<div class="absolute inset-0" style="background:#080810;"></div>
-<div class="absolute inset-0 opacity-[0.04] pointer-events-none"
-  style="background-image:linear-gradient(rgba(255,255,255,1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,1) 1px,transparent 1px);background-size:60px 60px;"></div>
-<div class="absolute inset-0 pointer-events-none"
-  style="background:radial-gradient(ellipse at center,transparent 80%,#080810 80%);"></div>
-<div class="absolute -bottom-[40px] -right-[40px] w-[350px] h-[350px] rounded-full pointer-events-none"
-  style="background:radial-gradient(circle,rgba(220,38,38,0.08),transparent 95%);"></div>
-<div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/8 to-transparent"></div>
-<div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/8 to-transparent"></div>
+  <div class="absolute inset-0" style="background:#080810;"></div>
+  <div class="absolute inset-0 opacity-[0.04] pointer-events-none"
+    style="background-image:linear-gradient(rgba(255,255,255,1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,1) 1px,transparent 1px);background-size:60px 60px;"></div>
+  <div class="absolute inset-0 pointer-events-none"
+    style="background:radial-gradient(ellipse at center,transparent 80%,#080810 80%);"></div>
+  <div class="absolute -bottom-[40px] -right-[40px] w-[350px] h-[350px] rounded-full pointer-events-none"
+    style="background:radial-gradient(circle,rgba(220,38,38,0.08),transparent 95%);"></div>
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/8 to-transparent"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/8 to-transparent"></div>
 
   <div class="relative z-10 transition-all duration-500"
     [ngClass]="{'xl:ml-[280px]': isSidebarOpen, 'ml-0': !isSidebarOpen}">
@@ -22,10 +21,11 @@
               text-gray-300 text-xs tracking-widest uppercase">
           Projects
         </span>
-
         <h2 class="text-4xl sm:text-5xl font-light mb-12">
-          Projects Where Creativity <br> <span class="font-medium bg-gradient-to-b from-[#ffd166] via-[#ffb703] to-[#9d0208] bg-clip-text text-transparent">
-            Meets Strategy</span>
+          Projects Where Creativity <br>
+          <span class="font-medium bg-gradient-to-b from-[#ffd166] via-[#ffb703] to-[#9d0208] bg-clip-text text-transparent">
+            Meets Strategy
+          </span>
         </h2>
       </div>
 
@@ -34,74 +34,67 @@
         <ng-container *ngFor="let proj of projects; let i = index">
 
           <div class="project-card-item rounded-2xl overflow-hidden border border-white/7
-            bg-[#0c0c18] transition-all duration-700 cursor-pointer group
-            hover:border-[rgba(220,38,38,0.6)]"
-              [ngClass]="proj.reverse ? 'grid-reverse' : ''"
-              (click)="openModal(i)">
+            bg-[#0c0c18] transition-all duration-700 cursor-pointer group"
+            [ngClass]="{
+              'grid-reverse': proj.reverse,
+              'hover:border-[rgba(220,38,38,0.6)]': proj.accentColor === 'red' || proj.accentColor === 'purple',
+              'hover:border-[rgba(16,185,129,0.6)]': proj.accentColor === 'emerald'
+            }"
+            (click)="openModal(i)">
 
             <div class="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr]"
               [ngClass]="proj.reverse ? 'lg:grid-cols-[1fr_1.2fr]' : ''">
 
               <!-- IMAGE / VIDEO -->
-            <div class="relative overflow-hidden min-h-[250px] sm:min-h-[300px]"
-              [ngClass]="proj.reverse ? 'lg:order-2' : 'lg:order-1'">
+              <div class="relative overflow-hidden min-h-[250px] sm:min-h-[300px]"
+                [ngClass]="proj.reverse ? 'lg:order-2' : 'lg:order-1'">
 
-              <!-- VIDEO (car web = index 1) -->
-              <video
-                #videoEl
-                class="absolute inset-0 w-full h-full object-cover"
-                loop playsinline
-                [muted]="true"
-                (canplay)="playVideo(videoEl)"
-                (loadeddata)="playVideo(videoEl)">
-                <source [src]="proj.videoSrc" type="video/mp4">
-              </video>
-
-              <!-- SLIDESHOW (rest of projects) -->
-              <ng-template #slideshow>
-                <ng-container *ngFor="let slide of proj.slides; let si = index">
-                  <img [src]="slide" alt="Project"
-                    class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
-                    [ngClass]="si === slideshowIndexes[i] ? 'opacity-100' : 'opacity-0'"/>
+                <ng-container *ngIf="proj.videoSrc; else slideshow">
+                  <video
+                    #videoEl
+                    class="absolute inset-0 w-full h-full object-cover"
+                    loop playsinline
+                    [muted]="true"
+                    (canplay)="playVideo(videoEl)"
+                    (loadeddata)="playVideo(videoEl)">
+                    <source [src]="proj.videoSrc" type="video/mp4">
+                  </video>
                 </ng-container>
 
-                <!-- DOTS -->
-                <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+                <ng-template #slideshow>
                   <ng-container *ngFor="let slide of proj.slides; let si = index">
-                    <div class="h-1.5 rounded-full transition-all duration-300"
-                      [ngClass]="si === slideshowIndexes[i] ? 'w-4 bg-white' : 'w-1.5 bg-white/30'">
-                    </div>
+                    <img [src]="slide" alt="Project"
+                      class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+                      [ngClass]="si === slideshowIndexes[i] ? 'opacity-100' : 'opacity-0'"/>
                   </ng-container>
-                </div>
-              </ng-template>
+                  <!-- DOTS -->
+                  <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+                    <ng-container *ngFor="let slide of proj.slides; let si = index">
+                      <div class="h-1.5 rounded-full transition-all duration-300"
+                        [ngClass]="si === slideshowIndexes[i] ? 'w-4 bg-white' : 'w-1.5 bg-white/30'">
+                      </div>
+                    </ng-container>
+                  </div>
+                </ng-template>
 
-              <!-- OVERLAY on hover -->
-              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
-                <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300
-                            text-white text-sm font-medium bg-black/50 px-4 py-2 rounded-full">
-                Click To View Details →
+                <!-- OVERLAY on hover -->
+                <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
+                  <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300
+                               text-white text-sm font-medium bg-black/50 px-4 py-2 rounded-full">
+                    Click To View Details →
+                  </span>
+                </div>
+
+                <!-- TYPE BADGE -->
+                <span class="absolute top-4 left-4 text-[10px] font-semibold px-3 py-1 rounded-full z-10 backdrop-blur-sm"
+                  [ngClass]="{
+                    'bg-[rgba(0,0,0,0.35)] text-[#f0a0ff] border border-[rgba(232,121,249,0.6)]': proj.accentColor === 'purple',
+                    'bg-[rgba(0,0,0,0.35)] text-[#ff9999] border border-[rgba(220,38,38,0.6)]': proj.accentColor === 'red',
+                    'bg-[rgba(0,0,0,0.35)] text-[#6ee7b7] border border-[rgba(16,185,129,0.6)]': proj.accentColor === 'emerald'
+                  }">
+                  {{ proj.type }}
                 </span>
-              </div>
 
-              <!-- TYPE BADGE -->
-              <span class="absolute top-4 left-4 text-[10px] font-semibold px-3 py-1 rounded-full z-10 backdrop-blur-sm"
-                [ngClass]="{
-                  'bg-[rgba(0,0,0,0.35)] text-[#f0a0ff] border border-[rgba(232,121,249,0.6)]': proj.accentColor === 'purple',
-                  'bg-[rgba(0,0,0,0.35)] text-[#ff9999] border border-[rgba(220,38,38,0.6)]': proj.accentColor === 'red'
-                }">
-                {{ proj.type }}
-              </span>
-
-
-
-                <!-- DOTS -->
-                <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
-                  <ng-container *ngFor="let slide of proj.slides; let si = index">
-                    <div class="h-1.5 rounded-full transition-all duration-300"
-                      [ngClass]="si === slideshowIndexes[i] ? 'w-4 bg-white' : 'w-1.5 bg-white/30'">
-                    </div>
-                  </ng-container>
-                </div>
               </div>
 
               <!-- INFO -->
@@ -131,29 +124,34 @@
                 <!-- TAGS -->
                 <div class="flex flex-wrap gap-2 mb-6">
                   <span *ngFor="let tag of proj.tags"
-                    class="text-[10px] px-2.5 py-1 rounded-md bg-white/5 text-white/40 border border-white/7
-                          transition-all duration-300 group-hover:text-[#f87171] group-hover:border-[rgba(220,38,38,0.4)] group-hover:bg-[rgba(220,38,38,0.15)]">
+                    class="text-[10px] px-2.5 py-1 rounded-md bg-white/5 text-white/40 border border-white/7 transition-all duration-300"
+                    [ngClass]="{
+                      'group-hover:text-[#f87171] group-hover:border-[rgba(220,38,38,0.4)] group-hover:bg-[rgba(220,38,38,0.15)]': proj.accentColor === 'red' || proj.accentColor === 'purple',
+                      'group-hover:text-[#6ee7b7] group-hover:border-[rgba(16,185,129,0.4)] group-hover:bg-[rgba(16,185,129,0.15)]': proj.accentColor === 'emerald'
+                    }">
                     {{ tag }}
                   </span>
                 </div>
 
                 <!-- BUTTON -->
-                <div class="inline-flex items-center gap-2 text-xs font-medium px-4 py-2 rounded-lg w-fit
-                            transition-all duration-200"
+                <div class="inline-flex items-center gap-2 text-xs font-medium px-4 py-2 rounded-lg w-fit transition-all duration-200"
                   [ngClass]="{
                     'text-[#e879f9] border border-[rgba(232,121,249,0.3)] bg-[rgba(232,121,249,0.06)] hover:bg-[rgba(232,121,249,0.15)]': proj.accentColor === 'purple',
-                    'text-[#f87171] border border-[rgba(220,38,38,0.3)] bg-[rgba(220,38,38,0.06)] hover:bg-[rgba(220,38,38,0.15)]': proj.accentColor === 'red'
+                    'text-[#f87171] border border-[rgba(220,38,38,0.3)] bg-[rgba(220,38,38,0.06)] hover:bg-[rgba(220,38,38,0.15)]': proj.accentColor === 'red',
+                    'text-[#6ee7b7] border border-[rgba(16,185,129,0.3)] bg-[rgba(16,185,129,0.06)] hover:bg-[rgba(16,185,129,0.15)]': proj.accentColor === 'emerald'
                   }">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" 
+                  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
                       fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
                     <circle cx="12" cy="12" r="3"/>
                   </svg>
                   View Details
                 </div>
+
               </div>
             </div>
           </div>
+
         </ng-container>
       </div>
     </div>
@@ -173,16 +171,16 @@
           class="w-full h-full object-cover transition-opacity duration-500"/>
 
         <!-- LEFT ARROW -->
-        <button class="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/50 
-                text-white/70 hover:text-[#f87171] hover:bg-[rgba(220,38,38,0.2)] flex items-center justify-center 
+        <button class="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/50
+                text-white/70 hover:text-[#f87171] hover:bg-[rgba(220,38,38,0.2)] flex items-center justify-center
                 transition-all duration-200 z-10"
-          (click)="$event.stopPropagation(); prevSlide()">⮜</button>
+          (click)="$event.stopPropagation(); prevSlide()">🡄</button>
 
         <!-- RIGHT ARROW -->
-        <button class="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/50 
-               text-white/70 hover:text-[#f87171] hover:bg-[rgba(220,38,38,0.2)] flex items-center justify-center 
+        <button class="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/50
+               text-white/70 hover:text-[#f87171] hover:bg-[rgba(220,38,38,0.2)] flex items-center justify-center
                transition-all duration-200 z-10"
-          (click)="$event.stopPropagation(); nextSlide()">➤</button>
+          (click)="$event.stopPropagation(); nextSlide()">🡆</button>
 
         <!-- THUMBNAILS -->
         <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
@@ -240,5 +238,5 @@
       </div>
     </div>
   </div>
-  
+
 </section>
