@@ -153,6 +153,128 @@
           </div>
 
         </ng-container>
+
+        <!-- WORK EXPERIENCE SECTION -->
+<div class="mt-12 pt-8 border-t border-white/6">
+
+  <!-- Sub-header -->
+  <div class="mb-8">
+    <span class="inline-block mb-3 px-4 py-1 rounded-full bg-white/5 border border-white/10
+          text-gray-300 text-xs tracking-widest uppercase">
+      Experience
+    </span>
+    <h3 class="text-3xl sm:text-4xl font-light text-white">
+      Work Experience &amp; <br>
+      <span class="font-medium bg-gradient-to-b from-[#ffd166] via-[#ffb703] to-[#9d0208] bg-clip-text text-transparent">
+        Real-World Impact
+      </span>
+    </h3>
+  </div>
+
+  <!-- Experience Card -->
+  <div class="rounded-2xl overflow-hidden border border-white/7 bg-[#0c0c18]
+              transition-all duration-300 group hover:border-[rgba(220,38,38,0.5)]">
+    <div class="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr]">
+
+      <!-- MEDIA / SLIDESHOW -->
+      <div class="relative overflow-hidden min-h-[260px] sm:min-h-[320px]">
+        <ng-container *ngFor="let slide of olilitSlides; let si = index">
+          <img [src]="slide" alt="Olilit screenshot"
+            class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+            [ngClass]="si === olilitSlideIndex ? 'opacity-100' : 'opacity-0'"/>
+        </ng-container>
+
+        <!-- Fade to right -->
+        <div class="absolute inset-0 pointer-events-none"
+          style="background: linear-gradient(to right, transparent 55%, #0c0c18 100%);"></div>
+
+        <!-- Badge -->
+        <span class="absolute top-4 left-4 text-[10px] font-semibold px-3 py-1 rounded-full z-10
+                     bg-[rgba(0,0,0,0.35)] text-[#ff9999] border border-[rgba(220,38,38,0.6)]">
+          Internship
+        </span>
+
+        <!-- Dots -->
+        <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+          <div *ngFor="let s of olilitSlides; let si = index"
+            class="h-1.5 rounded-full transition-all duration-300"
+            [ngClass]="si === olilitSlideIndex ? 'w-4 bg-white' : 'w-1.5 bg-white/30'">
+          </div>
+        </div>
+      </div>
+
+      <!-- INFO -->
+      <div class="p-7 sm:p-9 flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-white/6">
+
+        <!-- Company row -->
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0
+                      bg-[rgba(220,38,38,0.12)] border border-[rgba(220,38,38,0.3)]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                 fill="none" stroke="#f87171" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2"/>
+              <path d="M8 21h8M12 17v4"/>
+            </svg>
+          </div>
+          <div>
+            <div class="text-xs font-medium text-[#f87171]">Xentra Infotech Solutions</div>
+            <div class="text-[10px] text-white/30 mt-0.5">Project: Olilit Website</div>
+          </div>
+        </div>
+
+        <h4 class="text-xl sm:text-2xl font-semibold text-white mb-2 leading-tight">
+          Intern Web Developer
+        </h4>
+
+        <div class="flex items-center gap-2 text-[10px] text-white/30 tracking-widest uppercase mb-5">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#dc2626] inline-block"></span>
+          Jan 12, 2026 – Apr 20, 2026
+        </div>
+
+        <div class="h-px bg-white/6 mb-5"></div>
+
+        <ul class="flex flex-col gap-2 mb-6">
+          <li class="text-[11px] text-white/45 leading-relaxed pl-3 relative
+                     before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1
+                     before:rounded-full before:bg-[rgba(220,38,38,0.6)]">
+            Contributed to the development of the Olilit website using Angular, Express.js, and Tailwind CSS.
+          </li>
+          <li class="text-[11px] text-white/45 leading-relaxed pl-3 relative
+                     before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1
+                     before:rounded-full before:bg-[rgba(220,38,38,0.6)]">
+            Built and implemented assigned UI components and screens.
+          </li>
+          <li class="text-[11px] text-white/45 leading-relaxed pl-3 relative
+                     before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1
+                     before:rounded-full before:bg-[rgba(220,38,38,0.6)]">
+            Developed simple CRUD features using Angular.
+          </li>
+          <li class="text-[11px] text-white/45 leading-relaxed pl-3 relative
+                     before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1
+                     before:rounded-full before:bg-[rgba(220,38,38,0.6)]">
+            Collaborated using Git workflows and modern development practices.
+          </li>
+          <li class="text-[11px] text-white/45 leading-relaxed pl-3 relative
+                     before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1
+                     before:rounded-full before:bg-[rgba(220,38,38,0.6)]">
+            Participated in feature implementation, testing, and code reviews with mentor and team members.
+          </li>
+        </ul>
+
+        <!-- Tags -->
+        <div class="flex flex-wrap gap-2">
+          <span *ngFor="let tag of ['Angular', 'Express.js', 'Tailwind CSS', 'Node.js', 'MongoDB', 'Git']"
+            class="text-[10px] px-2.5 py-1 rounded-md bg-white/5 text-white/35 border border-white/7
+                   transition-all duration-300
+                   group-hover:text-[#f87171] group-hover:border-[rgba(220,38,38,0.4)] group-hover:bg-[rgba(220,38,38,0.12)]">
+            {{ tag }}
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
       </div>
     </div>
   </div>

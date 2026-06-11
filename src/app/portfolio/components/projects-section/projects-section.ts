@@ -36,7 +36,7 @@ export class ProjectsSectionComponent implements AfterViewInit {
       role: 'Frontend Developer',
       year: '2023',
       type: 'Web Dev',
-      tags: ['Angular', 'Tailwind CSS', 'TypeScript', 'UI/UX'],
+      tags: ['HTML', 'CSS', 'JavaScript', 'UI/UX'],
       videoSrc: 'assets/video-project.mp4',
       slides: ['assets/ApexP1.png', 'assets/ApexP2.png', 'assets/ApexP3.png', 'assets/ApexP4.png', 'assets/ApexP5.png'],
       accentColor: 'red',
@@ -65,10 +65,36 @@ export class ProjectsSectionComponent implements AfterViewInit {
       videoSrc: 'assets/video-project2.mp4',
       tags: ['Unity', 'C#', '2D', 'Survival', 'Platformer'],
       slides: ['assets/MineshaftPic1.png', 'assets/MineshaftPic2.png','assets/MineshaftPic3.png','assets/MineshaftPic4.png','assets/MineshaftPic5.png','assets/MineshaftPic6.png'],
-      accentColor: 'purple',
+      accentColor: 'red',
+      reverse: true
+    },
+    {
+      title: 'Olilit Mobile App',
+      shortTitle: 'Olilit',
+      desc: 'Full-stack mobile application built during internship experience, combining intuitive mobile interfaces with robust backend integration. Developed key features, managed API communication, and helped deliver a smooth end-user experience.',
+      role: 'Mobile App Developer',
+      year: '2026',
+      type: 'Mobile Dev',
+      videoSrc: 'assets/video-project5.mp4',
+      tags: ['React Native', 'NativeWind', 'Node.js', 'Express.js', 'MongoDB'],
+      slides: [
+        'assets/OlilitPic1.png',
+        'assets/OlilitPic2.png',
+        'assets/OlilitPic3.png',
+        'assets/OlilitPic4.png'
+      ],
+      accentColor: 'red',
       reverse: true
     }
   ];
+
+  olilitSlides = [
+  'assets/legalsynPic1.png',
+  'assets/legalsynPic2.png',
+  'assets/legalsynPic3.png'
+  ];
+  olilitSlideIndex = 0;
+  private olilitInterval: any;
 
   playVideo(el: HTMLVideoElement) {
   el.muted = true;
@@ -81,7 +107,7 @@ export class ProjectsSectionComponent implements AfterViewInit {
   }
 }
 
-  slideshowIndexes: number[] = [0, 0, 0, 0];
+  slideshowIndexes: number[] = [0, 0, 0, 0,0];
   private intervals: any[] = [];
 
   ngAfterViewInit(): void {
@@ -109,6 +135,10 @@ export class ProjectsSectionComponent implements AfterViewInit {
         this.slideshowIndexes[pi] = (this.slideshowIndexes[pi] + 1) % proj.slides.length;
       }, 2500);
     });
+
+    this.olilitInterval = setInterval(() => {
+      this.olilitSlideIndex = (this.olilitSlideIndex + 1) % this.olilitSlides.length;
+    }, 2800);
   }
 
   openModal(index: number) {
